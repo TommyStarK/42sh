@@ -1,0 +1,10 @@
+*/obj/*
+*/bin/*
+*/src/*~
+*~
+*/*~
+*/include/*~
+epic_editor
+js_server
+fantasy_client
+*.o
