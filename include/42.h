@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:05 2014 chambon emmanuel
-** Last update Thu May 22 15:21:48 2014 chambon emmanuel
+** Last update Thu May 22 23:26:22 2014 chambon emmanuel
 */
 
 #ifndef __42_h__
@@ -17,12 +17,17 @@
 # include <string.h>
 # include <unistd.h>
 # include <sys/types.h>
+# include <sys/stat.h>
+# include <sys/wait.h>
 # include <fcntl.h>
 # include <strings.h>
+# include <errno.h>
 # include "error.h"
 # include "lib.h"
 # include "struct.h"
 # include "builtins.h"
+# include "exec.h"
+# include "tools.h"
 
 char		**get_env(char **);
 int		node_shell(t_sh *);
