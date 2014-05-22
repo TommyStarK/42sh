@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue Mar 25 13:20:37 2014 chambon emmanuel
-** Last update Thu May 22 15:13:30 2014 chambon emmanuel
+** Last update Thu May 22 17:55:36 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -46,11 +46,8 @@ void		print_error_env(char *error)
 	 , error);
 }
 
-void		my_env(char **opt, t_sh *sh)
+int		my_env(char **opt, t_sh *sh, int i)
 {
-  int		i;
-
-  i = 0;
   if (opt[0] == NULL)
     print_env(sh->env, '\n');
   else
@@ -68,9 +65,10 @@ void		my_env(char **opt, t_sh *sh)
 	  else
 	    {
 	      print_error_env(opt[i]);
-	      return ;
+	      return (0);
 	    }
 	  i++;
 	}
     }
+  return (0);
 }

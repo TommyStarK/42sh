@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu Dec 26 17:37:22 2013 emmanuel chambon
-** Last update Thu May 22 16:09:18 2014 chambon emmanuel
+** Last update Thu May 22 17:56:43 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -49,13 +49,13 @@ int		my_unsetenv(char **opt, t_sh *sh)
   if (i == -1)
     {
       fprintf(stderr, NT_FND_ENV);
-      return (-1);
+      return (0);
     }
   else
    {
      if (!(sh->env = paste_env(sh, i)))
-       return (-1);
+       return (0);
      return (0);
    }
-  return (-1);
+  return (0);
 }

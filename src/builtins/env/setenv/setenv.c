@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 16:41:23 2014 chambon emmanuel
-** Last update Thu May 22 16:07:59 2014 chambon emmanuel
+** Last update Thu May 22 17:56:21 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -13,7 +13,7 @@
 int		print_usage_setenv()
 {
   fprintf(stderr, ARG_SETENV);
-  return (-1);
+  return (0);
 }
 
 int		add_item(char *item, char *value, t_sh *sh)
@@ -52,7 +52,7 @@ int		my_setenv(char **opt, t_sh *sh)
     {
       free(item);
       free(value);
-      return (-1);
+      return (0);
     }
   free(item);
   free(value);

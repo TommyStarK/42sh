@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Thu May 22 15:17:35 2014 chambon emmanuel
+## Last update Thu May 22 18:00:49 2014 chambon emmanuel
 ##
 
 CC		=	gcc
@@ -28,7 +28,7 @@ SRC		=	$(SRC_F)main.c				\
 			$(SRC_F)config.c			\
 			$(SRC_F)free_sh.c			\
 			$(BTIN_F)common_builtins.c		\
-			$(BTIN_F)dispatch_builtins.c		\
+			$(BTIN_F)check_builtins.c		\
 			$(BTIN_F)cd/cd.c			\
 			$(BTIN_F)echo/echo.c			\
 			$(BTIN_F)env/env/env.c			\

@@ -5,11 +5,34 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Wed May 21 14:57:38 2014 chambon emmanuel
+** Last update Thu May 22 16:19:09 2014 chambon emmanuel
 */
 
 #ifndef __STRUCT_H__
 # define __STRUCT_H__
+
+typedef struct		s_tools
+{
+  int			len;
+  int			end;
+  int			sep;
+}			t_tools;
+
+typedef struct		s_exe
+{
+  int			stdin;
+  int			stdout;
+  int			stderr;
+  int			pipefd[2];
+}			t_exe;
+
+typedef struct		s_bin
+{
+  char			*op;
+  char			**cmd;
+  struct s_bin		*r;
+  struct s_bin		*l;
+}			t_bin;
 
 typedef struct		s_alias
 {
@@ -24,8 +47,8 @@ typedef struct		s_sh
   char			*prompt;
   int			last_return;
   pid_t			pid_pgr;
-  /* t_exe			*exe; */
-  /* t_bin			*tree; */
+  t_exe			*exe;
+  t_bin			*tree;
   t_alias		*alias;
 }			t_sh;
 
