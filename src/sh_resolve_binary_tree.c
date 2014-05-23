@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Fri May 23 20:45:25 2014 chambon emmanuel
+** Last update Fri May 23 22:00:20 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -17,14 +17,14 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
 
   if (access(tmp->cmd[0], R_OK) == -1)
     {
-      fprintf(stderr, "access : [%s]\n", strerror(errno));
+      fprintf(stderr, ACCESS_DENIED, strerror(errno));
       return (1);
     }
   if ((pid = vfork()) == -1)
     {
-     printf(ERR_FORK);
-     return (0);
-   }
+      fprintf(stderr, ERR_FORK);
+      return (0);
+    }
   else if (pid == 0)
     execve(tmp->cmd[0], tmp->cmd, sh->env);
   else
@@ -51,11 +51,11 @@ int		do_exec(t_sh *sh, t_bin *tmp)
     }
   if ((pid = vfork()) == -1)
     {
-     printf(ERR_FORK);
-     return (0);
-   }
+      fprintf(stderr, ERR_FORK);
+      return (0);
+    }
   else if (pid == 0)
-   execve(cmd_to_exec, tmp->cmd, sh->env);
+    execve(cmd_to_exec, tmp->cmd, sh->env);
   else
     {
       wait(&status);
@@ -99,7 +99,7 @@ int		resolve_binary_tree(t_sh *sh, t_bin **tree)
       else
 	{
 	  if (do_exec(sh, tmp) == 0)
-	  return (0);
+	    return (0);
 	}
     }
   else

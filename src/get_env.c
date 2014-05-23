@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:03:22 2014 chambon emmanuel
-** Last update Tue May 20 22:10:35 2014 chambon emmanuel
+** Last update Fri May 23 21:57:25 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -26,7 +26,7 @@ char		**get_env(char **env)
     {
       if (!(envp[i] = strdup(env[i])))
 	{
-	  fprintf(stderr, MALLOC_ERROR);
+	  fprintf(stderr, ERR_MALLOC);
 	  return (NULL);
 	}
       i++;
