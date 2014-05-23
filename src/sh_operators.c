@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 01:14:08 2014 thomas milox
-** Last update Fri May 23 08:33:08 2014 thomas milox
+** Last update Fri May 23 09:56:29 2014 thomas milox
 */
 
 #include "42.h"
@@ -63,7 +63,7 @@ int			make_d_lredir(t_sh *sh, t_bin *tmp)
   if (resolve_binary_tree(sh, &tmp->l) == 0)
     return (0);
   if (close(ret.pipefd[0]) || dup2(ret.stdout, 1) == -1
-      || close(ret.stdout))
+      || dup2(ret.stdin, 0) == -1)
     return (0);
   return (1);
 }
