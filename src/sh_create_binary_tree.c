@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:23:57 2014 thomas milox
-** Last update Fri May 23 08:36:57 2014 thomas milox
+** Last update Fri May 23 21:21:59 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -65,7 +65,7 @@ t_bin		*new_branch(char *current_cmd, int size, char *current_op)
     {
       tmp->op = NULL;
       cmd_part = patch_cmd(current_cmd, size);
-      tmp->cmd = str_wtab(cmd_part);
+      tmp->cmd = my_str_to_wordtab(epur_str(cmd_part), ' ');
     }
   tmp->r = NULL;
   tmp->l = NULL;
@@ -84,7 +84,7 @@ t_bin		*create_binary_tree(t_bin **tree, char *s, int z)
       while (t.end >= 0)
 	{
 	  op = patch_op_or_sep(s, t.end, t.sep);
-	  t.len = my_strlen(op);
+	  t.len = (int)strlen(op);
 	  if (op[0])
 	    {
 	      *tree = new_branch(NULL, 0, op);

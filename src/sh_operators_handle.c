@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 15:35:55 2014 thomas milox
-** Last update Fri May 23 09:20:16 2014 chambon emmanuel
+** Last update Fri May 23 20:52:52 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -107,7 +107,7 @@ char			*handle_d_lredir(char *match, int fd)
   if (write(fd, "> ", 2) == -1 || (s = gt_next_line(fd)) == NULL)
     return (NULL);
   res = s;
-  while (my_strcmp(s, match) != 1)
+  while (strcmp(s, match))
     {
       if ((res =  strcat(res, "\n")) == NULL)
 	return (NULL);
@@ -116,8 +116,8 @@ char			*handle_d_lredir(char *match, int fd)
       if ((res =  strcat(res, s)) == NULL)
 	return (NULL);
     }
-  x = my_strlen(s);
-  y = my_strlen(res);
+  x = (int)strlen(s);
+  y = (int)strlen(res);
   while (x-- >= 0)
     res[y--] = '\0';
   if ((res =  strcat(res, "\n")) == NULL)

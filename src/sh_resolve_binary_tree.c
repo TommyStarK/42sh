@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Fri May 23 08:38:39 2014 thomas milox
+** Last update Fri May 23 20:45:25 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -44,7 +44,7 @@ int		do_exec(t_sh *sh, t_bin *tmp)
   if ((tmp->cmd[0][0] == '.' && tmp->cmd[0][1] == '/')
       || (tmp->cmd[0][0] == '/'))
     return (do_exec_local(sh, tmp));
-  if ((cmd_to_exec = get_path(sh, tmp)) == NULL)
+  if ((cmd_to_exec = get_path(sh, tmp, 0)) == NULL)
     {
       fprintf(stderr, ERR_CMD, tmp->cmd[0]);
       return (1);
@@ -66,20 +66,20 @@ int		do_exec(t_sh *sh, t_bin *tmp)
 
 int		dispatch_sep_or_op(t_sh *sh, t_bin *tmp)
 {
-  if (my_strcmp(tmp->op, ";") == 1)
+  if (!(strcmp(tmp->op, ";")))
     {
       resolve_binary_tree(sh, &tmp->l);
       resolve_binary_tree(sh, &tmp->r);
     }
-  else if (my_strcmp(tmp->op, "<") == 1)
+  else if (!(strcmp(tmp->op, "<")))
     return (make_lredir(sh, tmp));
-  else if (my_strcmp(tmp->op, "<<") == 1)
+  else if (!(strcmp(tmp->op, "<<")))
     return (make_d_lredir(sh, tmp));
-  else if (my_strcmp(tmp->op, ">") == 1)
+  else if (!(strcmp(tmp->op, ">")))
     return (make_rredir(sh, tmp));
-  else if (my_strcmp(tmp->op, ">>") == 1)
+  else if (!(strcmp(tmp->op, ">>")))
     return (make_d_rredir(sh, tmp));
-  else if (my_strcmp(tmp->op, "|") == 1)
+  else if (!(strcmp(tmp->op, "|")))
     return (make_pipe(sh, tmp));
   return (1);
 }

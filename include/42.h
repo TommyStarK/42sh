@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:05 2014 chambon emmanuel
-** Last update Fri May 23 03:52:19 2014 thomas milox
+** Last update Fri May 23 20:40:30 2014 chambon emmanuel
 */
 
 #ifndef __42_h__
@@ -33,5 +33,6 @@ char		**get_env(char **);
 int		node_shell(t_sh *);
 void		free_sh(t_sh *);
 int		conf_read(t_sh *sh);
+pid_t		vfork(void);
 
 #endif /* !__42_H__ */

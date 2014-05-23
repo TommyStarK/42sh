@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May  3 06:12:59 2014 thomas milox
-** Last update Fri May 23 08:37:53 2014 thomas milox
+** Last update Fri May 23 21:06:05 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -16,8 +16,8 @@ char		*patch_path_to_execve(t_bin *tmp, int size, char *current_path)
   int		y;
   char		*path;
 
-  x = my_strlen(current_path);
-  y = my_strlen(tmp->cmd[0]);
+  x = (int)strlen(current_path);
+  y = (int)strlen(tmp->cmd[0]);
   if ((path = malloc(sizeof(char) * size)) == NULL)
     return (NULL);
   my_strncpy(path, current_path, x);
@@ -34,25 +34,23 @@ int		check_if_env_variable_exist(char **env, char *variable)
   i = 0;
   if (!env || !(*env))
     return (0);
-  while (env[i] && my_strncmp(env[i], variable, my_strlen(variable)) != 0)
+  while (env[i] && strncmp(env[i], variable, strlen(variable)))
     i++;
   if (!env[i])
     {
-      fprintf(stderr, MISSING_ENV, variable);
+      fprintf(stderr, MISSING_ENV, (int)strlen(variable), variable);
       return (0);
     }
   else
     return (i);
 }
 
-char		*get_path(t_sh *sh, t_bin *tmp)
+char		*get_path(t_sh *sh, t_bin *tmp, int i)
 {
-  int		i;
   int		size;
   char		*path;
   char		**path_tab;
 
-  i = 0;
   if ((i = check_if_env_variable_exist(sh->env, "PATH=")) == 0)
     return (NULL);
   if ((path_tab = my_str_to_wordtab(&(sh->env[i][5]), ':')) == NULL)
@@ -60,13 +58,13 @@ char		*get_path(t_sh *sh, t_bin *tmp)
   i = -1;
   while (path_tab[++i])
     {
-      size = (my_strlen(path_tab[i]) + my_strlen(tmp->cmd[0]) + 2);
+      size = ((int)strlen(path_tab[i]) + (int)strlen(tmp->cmd[0]) + 2);
       if ((path = malloc(sizeof(char) * size)) == NULL)
 	return (NULL);
       path = patch_path_to_execve(tmp, size, path_tab[i]);
       if (access(path, F_OK) == 0)
 	{
-	  xfree(path_tab);
+	  free_tab(path_tab);
 	  return (path);
 	}
       else

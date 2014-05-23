@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 01:14:08 2014 thomas milox
-** Last update Fri May 23 09:56:29 2014 thomas milox
+** Last update Fri May 23 20:52:18 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -53,7 +53,7 @@ int			make_d_lredir(t_sh *sh, t_bin *tmp)
       	return (0);
   if ((res = handle_d_lredir(tmp->r->cmd[0], 0)) == NULL)
     return (0);
-  if (write(ret.pipefd[1], res, my_strlen(res)) == -1)
+  if (write(ret.pipefd[1], res, strlen(res)) == -1)
     return (0);
   free(res);
   close(ret.pipefd[1]);
