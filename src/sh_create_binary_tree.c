@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:23:57 2014 thomas milox
-** Last update Fri May 23 07:13:13 2014 chambon emmanuel
+** Last update Fri May 23 08:36:57 2014 thomas milox
 */
 
 #include "42.h"
@@ -35,7 +35,7 @@ char		*patch_cmd(char *s, int size)
     return (NULL);
   if ((ret = malloc(sizeof(char) * (size + 1))) == NULL)
     {
-      write(2, ERR_MALLOC, my_strlen(ERR_MALLOC));
+      fprintf(stderr, ERR_MALLOC);
       return (NULL);
     }
   i = 0;
@@ -65,7 +65,6 @@ t_bin		*new_branch(char *current_cmd, int size, char *current_op)
     {
       tmp->op = NULL;
       cmd_part = patch_cmd(current_cmd, size);
-      /* cmd_part = epur_str(cmd_part); */
       tmp->cmd = str_wtab(cmd_part);
     }
   tmp->r = NULL;

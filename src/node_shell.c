@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:17:13 2014 chambon emmanuel
-** Last update Fri May 23 07:24:08 2014 chambon emmanuel
+** Last update Fri May 23 08:41:23 2014 thomas milox
 */
 
 #include "42.h"
@@ -20,13 +20,10 @@ int		node_shell(t_sh *sh)
   if (ret = read(0, buffer, 1024) <= 1)
     return (-1);
   buffer[ret - 1] = 0;
-  printf("buffer = <%s>\n", buffer);
-  if (!(strcmp(buffer, "exit")))
-    return (-1);
   epur_str(buffer);
   sh->tree = create_binary_tree(&sh->tree, buffer, my_strlen(buffer));
-  print_tree(sh->tree);
-  resolve_binary_tree(sh, &sh->tree);
+  if (!(resolve_binary_tree(sh, &sh->tree)))
+    return (-1);
   free_binary_tree(sh->tree);
   return (0);
 }

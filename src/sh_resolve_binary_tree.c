@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Fri May 23 06:52:09 2014 chambon emmanuel
+** Last update Fri May 23 08:38:39 2014 thomas milox
 */
 
 #include "42.h"
@@ -46,7 +46,7 @@ int		do_exec(t_sh *sh, t_bin *tmp)
     return (do_exec_local(sh, tmp));
   if ((cmd_to_exec = get_path(sh, tmp)) == NULL)
     {
-      printf(ERR_CMD, tmp->cmd[0]);
+      fprintf(stderr, ERR_CMD, tmp->cmd[0]);
       return (1);
     }
   if ((pid = vfork()) == -1)
@@ -86,15 +86,21 @@ int		dispatch_sep_or_op(t_sh *sh, t_bin *tmp)
 
 int		resolve_binary_tree(t_sh *sh, t_bin **tree)
 {
+  int		builtins;
   t_bin		*tmp;
 
   tmp = *tree;
   if (tmp->cmd)
     {
-      /* if (check_builtins() == 0) */
-      /* 	return (0); */
-      if (do_exec(sh, tmp) == 0)
-	return (0);
+      if ((builtins = check_builtins(sh, tmp)) == -1)
+      	return (0);
+      else if (builtins == 0)
+	return (1);
+      else
+	{
+	  if (do_exec(sh, tmp) == 0)
+	  return (0);
+	}
     }
   else
     {

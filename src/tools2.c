@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed Feb 19 03:04:07 2014 thomas milox
-** Last update Wed May 21 01:40:10 2014 thomas milox
+** Last update Fri May 23 08:40:26 2014 thomas milox
 */
 
 #include <stdlib.h>
@@ -35,7 +35,7 @@ int     my_strncmp(char *s1, char *s2, int nb)
 
   i = 0;
   if (!s2 || !(*s2))
-    my_puterror("Error: strncmp->src string NULL.\n");
+    return (1);
   while (i < nb)
     {
       if (s1[i] != s2[i])
@@ -79,7 +79,7 @@ int             my_isnum(char *s)
 
   i = 0;
   if (!s || !(*s))
-    my_puterror("Error: my_isnum->src string NULL.\n");
+    return (0);
   while (s[i])
     {
       if (s[i] < '0' || s[i++] > '9')

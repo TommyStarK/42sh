@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May  3 06:12:59 2014 thomas milox
-** Last update Fri May 23 07:08:30 2014 chambon emmanuel
+** Last update Fri May 23 08:37:53 2014 thomas milox
 */
 
 #include "42.h"
@@ -38,7 +38,7 @@ int		check_if_env_variable_exist(char **env, char *variable)
     i++;
   if (!env[i])
     {
-      printf("Shell: '%s': variable not set in 'ENV'.\n", variable);
+      fprintf(stderr, MISSING_ENV, variable);
       return (0);
     }
   else

@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 15:18:26 2014 chambon emmanuel
-** Last update Thu May 22 18:02:52 2014 chambon emmanuel
+** Last update Fri May 23 08:19:10 2014 chambon emmanuel
 */
 
 #ifndef __BUILTINS_H__
@@ -21,6 +21,6 @@ int		echo(char **);
 int		my_env(char **, t_sh *, int);
 int		my_setenv(char **, t_sh *);
 int		my_unsetenv(char **, t_sh *);
-
+int		check_builtins(t_sh *, t_bin *);
 
 #endif /* __BUILTINS_H__ */

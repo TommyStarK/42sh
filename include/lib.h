@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:11:03 2014 chambon emmanuel
-** Last update Fri May 23 07:06:17 2014 chambon emmanuel
+** Last update Fri May 23 08:18:15 2014 chambon emmanuel
 */
 
 #ifndef __LIB_H__
@@ -18,7 +18,7 @@ void		*my_xmalloc(size_t);
 void		my_putchar(char);
 void		my_putstr(char *);
 char		*my_strcat(char *, char *);
-/* char		*strdup(char *); */
+char		*strdup(char *);
 char		**my_str_to_wordtab(char *, char);
 
 #endif /* !__LIB_H__ */

@@ -1,3 +1,0 @@
-clear ; gcc *.c -g
-time valgrind ./a.out "cat << tommy ; ls > toto ; ls >> toto ; cat < toto ; ./a.out env ; caca ; emacs -nw ~/test ; cat toto | grep sh_o ; ./a.out env | grep TERM  | grep TERM= ; cat @'\ ; ls | grep sh | cat | cat | cat > titi ; cat -e titi ; 'lol ; dropbox status ; tree"
-rm a.out titi toto
