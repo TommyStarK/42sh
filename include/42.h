@@ -5,20 +5,20 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:05 2014 chambon emmanuel
-** Last update Thu May 22 23:26:22 2014 chambon emmanuel
+** Last update Fri May 23 03:52:19 2014 thomas milox
 */
 
 #ifndef __42_h__
 # define __42_h__
 
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <sys/wait.h>
 # include <stdio.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <sys/wait.h>
 # include <fcntl.h>
 # include <strings.h>
 # include <errno.h>

@@ -1,0 +1,1 @@
+ls > toto ; ls >> toto ; cat -e < toto ; ./a.out ; htop ; emacs -nw 42sh ; ls | grep s | cat | cat | cat > TESTDEMERDE

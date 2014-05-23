@@ -5,10 +5,11 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 17:02:07 2014 thomas milox
-** Last update Fri May 23 07:08:59 2014 chambon emmanuel
+** Last update Fri May 23 00:18:31 2014 chambon emmanuel
 */
 
 #include "tools.h"
+#include "42.h"
 
 int		my_strcmp(char *s1, char *s2)
 {
@@ -75,8 +76,7 @@ char		*nxt_line(char *res, const int fd, char buff[], t_it *it)
       if (flag && (res = my_realloc(res, it->i)) == NULL)
 	return (NULL);
     }
-  ((it->j == it->size || buff[it->j] == '\0') ? buff[0] = '\0' :
-   new_buff(buff, it->j + 1 , it->size));
+  ((it->j == it->size || buff[it->j] == '\0') ? buff[0] = '\0' : new_buff(buff, it->j + 1 , it->size));
   return (res);
 }
 
@@ -97,7 +97,8 @@ char		*gt_next_line(const int fd)
 	  new_buff(buff, it.i , it.size);
 	  return (res);
 	}
-      res[it.i] = buff[(it.i)++];
+      res[it.i] = buff[it.i];
+      it.i++;
     }
   if (buff[it.i] != EOF && (res = my_realloc(res, it.i)) == NULL)
     return (NULL);

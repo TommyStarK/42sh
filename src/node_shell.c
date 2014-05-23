@@ -5,31 +5,28 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:17:13 2014 chambon emmanuel
-** Last update Thu May 22 23:31:25 2014 chambon emmanuel
+** Last update Fri May 23 07:24:08 2014 chambon emmanuel
 */
 
 #include "42.h"
 
 int		node_shell(t_sh *sh)
 {
-  /* Prompt + read -> dorian */
-  char		buff[BUFF_SIZE];
+  char		buffer[1024];
+  int		ret;
 
-  /* READ TEMPORAIRE #################################### */
-  int i = read(0, buff, BUFF_SIZE);
-  buff[i - 1] = 0;
-  printf("buff = <%s>\n", buff);
-  if (!(strcmp(buff, "exit")))
+  bzero(buffer, 1024);
+  my_putstr("PROMPT $> ");
+  if (ret = read(0, buffer, 1024) <= 1)
     return (-1);
-  /* READ TEMPORAIRE #################################### */
-  sh->tree = create_binary_tree(&sh->tree, buff, my_strlen(buff));
+  buffer[ret - 1] = 0;
+  printf("buffer = <%s>\n", buffer);
+  if (!(strcmp(buffer, "exit")))
+    return (-1);
+  epur_str(buffer);
+  sh->tree = create_binary_tree(&sh->tree, buffer, my_strlen(buffer));
   print_tree(sh->tree);
   resolve_binary_tree(sh, &sh->tree);
   free_binary_tree(sh->tree);
-
-  /* execution -> milox */
-  /* if (execution == -1) return (-1) */
-
-
   return (0);
 }
