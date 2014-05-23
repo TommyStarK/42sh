@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu Dec 26 17:37:22 2013 emmanuel chambon
-** Last update Thu May 22 17:56:43 2014 chambon emmanuel
+** Last update Fri May 23 09:09:31 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -29,13 +29,13 @@ char		**paste_env(t_sh *sh, int i)
   new_env[tab_len(sh->env, NULL) - 1] = NULL;
   while (sh->env[x])
    {
-     new_env[y] = strdup(sh->env[x]);
-     if (x == (i - 1))
+     if (x == i)
        x++;
+     new_env[y] = strdup(sh->env[x]);
      x++;
      y++;
    }
-  /* free_envp(sh->env); */
+  free_tab(sh->env);
   return (new_env);
 }
 
