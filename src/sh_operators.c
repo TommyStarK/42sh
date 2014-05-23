@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 01:14:08 2014 thomas milox
-** Last update Fri May 23 20:52:18 2014 chambon emmanuel
+** Last update Sat May 24 00:44:02 2014 thomas milox
 */
 
 #include "42.h"
@@ -92,8 +92,13 @@ int			make_pipe(t_sh *sh, t_bin *tmp)
   if (ptr == tmp)
     {
       ptr = NULL;
-      if (dup2(ret.stdin, 0) == -1 || close(ret.stdin))
+      if (dup2(ret.stdin, 0) == -1 || close(ret.stdin) == -1)
   	return (0);
+    }
+  else
+    {
+      if (dup2(ret.stdin, 0) == -1 || close(ret.stdin) == -1)
+	return (0);
     }
   return (1);
 }
