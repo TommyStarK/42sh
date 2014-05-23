@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 15:35:55 2014 thomas milox
-** Last update Fri May 23 20:52:52 2014 chambon emmanuel
+** Last update Sat May 24 00:13:51 2014 thomas milox
 */
 
 #include "42.h"
@@ -29,10 +29,10 @@ t_exe			*set_flux_rredir(t_exe *exe, char **cmd, int flag)
   else if (flag == 1)
     {
       (void)cmd;
-      close(ret.pipefd[0]);
-      if (dup2(ret.stdout, 1) == -1)
+      /* close(ret.pipefd[0]); */
+      if (close(ret.pipefd[0]) == -1 || dup2(ret.stdout, 1) == -1 || close(ret.stdout) == -1)
 	return (NULL);
-      close(ret.stdout);
+      /* close(ret.stdout); */
       exe = &ret;
       return (exe);
     }

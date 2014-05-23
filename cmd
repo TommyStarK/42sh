@@ -1,1 +1,1 @@
-ls > toto ; ls >> toto ; cat -e < toto ; ./a.out ; htop ; emacs -nw 42sh ; ls | grep s | cat | cat | cat > TESTDEMERDE
+cat << tommy ; setenv EDITOR 12345 ; env ; env -0 ; echo yolo\n ; cd ; pwd ; cd - ; ls > toto ; ls >> toto ; cat -e < toto ; ./42sh ; htop ; emacs -nw 42sh ; tree | cat | cat | cat > TESTDEMERDE
