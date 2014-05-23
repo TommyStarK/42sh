@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:05:19 2014 chambon emmanuel
-** Last update Fri May 23 22:00:30 2014 chambon emmanuel
+** Last update Sat May 24 00:45:15 2014 chambon emmanuel
 */
 
 #ifndef __ERROR_H__
@@ -22,7 +22,6 @@
 # define ERR_FORK			"Error: with 'fork' syscall function.\n"
 # define ERR_MALLOC			"Error: something wrong occured with 'malloc syscall'.\n"
 # define ERR_CMD			"Shell: error-> [%s] command not found.\n"
-# define ERR_STR_TO_TAB			"Error: something went wrong with 'str_to_tab' call.\n"
 # define SEG_HANDLER			"Segmentation Fault !\n"
 # define ACCESS_DENIED			"access : [%s]\n"
 

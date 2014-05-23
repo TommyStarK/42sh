@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Fri May 23 06:40:20 2014 chambon emmanuel
+** Last update Sat May 24 00:16:18 2014 chambon emmanuel
 */
 
 #ifndef __STRUCT_H__
@@ -44,7 +44,7 @@ typedef struct		s_alias
 typedef struct		s_sh
 {
   char			**env;
-  /* char			*prompt; */
+  char			*prompt;
   /* int			last_return; */
   /* pid_t			pid_pgr; */
   t_exe			*exe;

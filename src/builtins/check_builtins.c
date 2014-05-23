@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 14:29:14 2014 chambon emmanuel
-** Last update Thu May 22 22:36:49 2014 chambon emmanuel
+** Last update Sat May 24 00:15:49 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -24,5 +24,7 @@ int		check_builtins(t_sh *sh, t_bin *tmp)
     return (my_unsetenv(&tmp->cmd[1], sh));
   else if (!(strcmp(tmp->cmd[0], "echo")))
     return (echo(&tmp->cmd[1]));
+  else if (!(strcmp(tmp->cmd[0], "set-prompt")))
+    return (set_prompt(sh, &tmp->cmd[1]));
   return (1);
 }

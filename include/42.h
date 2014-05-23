@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:05 2014 chambon emmanuel
-** Last update Fri May 23 20:40:30 2014 chambon emmanuel
+** Last update Sat May 24 00:37:07 2014 chambon emmanuel
 */
 
 #ifndef __42_h__
@@ -27,7 +27,7 @@
 # include "struct.h"
 # include "builtins.h"
 # include "exec.h"
-# include "tools.h"
+# include "prompt.h"
 
 char		**get_env(char **);
 int		node_shell(t_sh *);

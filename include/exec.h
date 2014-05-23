@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 23:10:07 2014 chambon emmanuel
-** Last update Fri May 23 10:06:30 2014 chambon emmanuel
+** Last update Sat May 24 00:45:00 2014 chambon emmanuel
 */
 
 #ifndef __EXEC_H__
@@ -43,8 +43,6 @@ char                    *patch_path_to_execve(t_bin *, int, char *);
 /* sh_signals.c */
 void                    signal_seg(int);
 /* TOOLS */
-char                    *get_next_line(const int);
-char                    **str_wtab(char *);
-char                    **str_to_tab(char *, char);
+char                    *gt_next_line(const int);
 
 #endif /* !__EXEC_H__ */

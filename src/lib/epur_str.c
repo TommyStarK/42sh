@@ -1,37 +1,61 @@
 /*
-** epur_str.c for 42 in /home/chambo-e/Dropbox/epitech/42sh/groupe_milox/PSU_2013_42sh/src
+** epur_str.c for Corewar in /home/chambo_e/Dropbox/Corewar/build/asm/src/base
 **
 ** Made by chambon emmanuel
 ** Login   <chambo_e@epitech.net>
 **
-** Started on  Fri May 23 21:07:41 2014 chambon emmanuel
-** Last update Fri May 23 21:07:57 2014 chambon emmanuel
+** Started on  Sun Apr 13 19:11:14 2014 chambon emmanuel
+** Last update Sat May 24 01:23:27 2014 chambon emmanuel
 */
 
-char		*epur_str(char *s)
+#include "42.h"
+
+void		clean_string(char *str)
 {
   int		i;
   int		j;
 
   i = -1;
   j = 0;
-  if (!s)
-    return (0);
-  while (s[++i] != '\0')
+  while (str[++i])
     {
-      if (s[i] != ' ' && s[i] != '\t')
-	{
-	  s[j] = s[i];
-	  j++;
-	  if (s[i + 1] == ' ' || s[i + 1] == '\t')
+      if (str[i] != ' ' && str[i] != '\t')
+        {
+          str[j] = str[i];
+          j++;
+	  if (str[i + 1] == ' ' || str[i + 1] == '\t')
 	    {
-	      s[j] = ' ';
+	      str[j] = ' ';
 	      j++;
 	    }
 	}
     }
-  s[j] = '\0';
-  if (s[j - 1] == ' ')
-    s[j - 1] = '\0';
-  return (s);
+  str[j] = '\0';
+  if (str[j - 1] == ' ')
+    str[j - 1] = '\0';
+}
+
+int		no_char(char *str)
+{
+  int		i;
+
+  i = 0;
+  while (str[i])
+    {
+      if (str[i] > 20 && str[i] < 127)
+	return (1);
+      i++;
+    }
+  return (0);
+}
+
+char            *epur_str(char *str)
+{
+  if (!str)
+    return (NULL);
+  if (!no_char(str))
+    str[0] = 0;
+  else
+    clean_string(str);
+  return (str);
 }
