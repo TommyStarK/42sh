@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:23:57 2014 thomas milox
-** Last update Sat May 24 05:05:19 2014 thomas milox
+** Last update Sat May 24 07:40:50 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -65,7 +65,7 @@ t_bin		*new_branch(char *current_cmd, int size, char *current_op)
     {
       tmp->op = NULL;
       cmd_part = patch_cmd(current_cmd, size);
-      tmp->cmd = my_str_to_wordtab(epur_str(cmd_part), ' ');
+      tmp->cmd = globing(my_str_to_wordtab(epur_str(cmd_part), ' '));
       tmp->success = 0;
    }
   tmp->r = NULL;

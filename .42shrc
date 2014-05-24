@@ -1,5 +1,17 @@
-#alias ne='emacs -nw'
-prompt : %red\[%endcolor\%blue\$LOGNAME\@$HOSTNAME\%endcolor\%red\]%endcolor\%green\>%endcolor\
-QNetSoul
 
-#alias ls='ls --color=auto'
+##################################
+#             ALIAS              #
+#                                #
+#   ex : "alias ls='ls --color'  #
+#                                #
+##################################
+alias ne='emacs -nw'
+alias ls='ls --color'
+
+##################################
+#             PROMPT             #
+#                                #
+#   ex : "alias ls='ls --color'  #
+#                                #
+##################################
+prompt : %red\[%endcolor\%blue\$LOGNAME\@$HOSTNAME\%endcolor\%red\]%endcolor\%green\>%endcolor\

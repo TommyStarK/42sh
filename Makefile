@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sat May 24 06:30:17 2014 chambon emmanuel
+## Last update Sat May 24 07:47:52 2014 chambon emmanuel
 ##
 
 CC		=	gcc -g
@@ -29,6 +29,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(SRC_F)alias.c			\
 			$(SRC_F)prompt.c			\
 			$(SRC_F)config.c			\
+			$(SRC_F)globing.c			\
 			$(SRC_F)my_getenv.c			\
 			$(SRC_F)prompt_flags.c			\
 			$(SRC_F)sh_create_binary_tree.c		\
@@ -49,6 +50,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(BTIN_F)alias/alias.c		\
 			$(LIB_F)my_realloc.c			\
 			$(LIB_F)my_putcolor.c			\
+			$(LIB_F)my_strcpy.c			\
 			$(LIB_F)my_putchar.c			\
 			$(LIB_F)epur_str.c			\
 			$(LIB_F)my_strncpy.c			\

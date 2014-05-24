@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 06:17:27 2014 chambon emmanuel
-** Last update Sat May 24 07:03:23 2014 chambon emmanuel
+** Last update Sat May 24 07:35:12 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -108,6 +108,7 @@ int		alias(t_sh *sh, char **opt)
     return (print_alias(sh));
   if (!(cmd = get_opt(opt)))
     return (0);
+  printf("cmd = <%s>\n", cmd);
   if (check_alias(cmd) == -1)
     {
       fprintf(stderr, "Alias : invalid syntax.\n");
@@ -117,6 +118,7 @@ int		alias(t_sh *sh, char **opt)
     i++;
   if (!(alias = my_strncpy_m(cmd, i)))
     return (0);
+  printf("alias = <%s>\n", alias);
   i += 2;
   if ((alias_size = find_quote(&cmd[i])) == -1)
     {
@@ -124,6 +126,7 @@ int		alias(t_sh *sh, char **opt)
       return (0);
     }
   replace = my_strncpy_m(&cmd[i], alias_size);
+  printf("replace = <%s>\n", replace);
   if ((list_put_start(&sh->alias, alias, replace)) == -1)
     return (0);
   return (0);

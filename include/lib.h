@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:11:03 2014 chambon emmanuel
-** Last update Sat May 24 00:40:27 2014 chambon emmanuel
+** Last update Sat May 24 07:48:25 2014 chambon emmanuel
 */
 
 #ifndef __LIB_H__
@@ -30,6 +30,7 @@ char		**my_str_to_wordtab(char *, char);
 void		free_tab(char **);
 char            *epur_str(char *);
 char            *my_strncpy(char *, char *, int);
+char            *my_strcpy(char *, char *);
 int		my_putchar_color(char, int);
 int		my_putstr_color(char *, int);
 

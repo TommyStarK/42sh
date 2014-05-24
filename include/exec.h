@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 23:10:07 2014 chambon emmanuel
-** Last update Sat May 24 06:28:55 2014 chambon emmanuel
+** Last update Sat May 24 07:45:57 2014 chambon emmanuel
 */
 
 #ifndef __EXEC_H__
@@ -44,5 +44,6 @@ int			get_signal_end_cmd(int);
 char                    *gt_next_line(const int);
 /* ALIAS */
 char			*replace_alias(char *, t_sh *);
+char			**globing(char **);
 
 #endif /* !__EXEC_H__ */
