@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sat May 24 07:47:52 2014 chambon emmanuel
+## Last update Sat May 24 18:31:08 2014 chambon emmanuel
 ##
 
 CC		=	gcc -g
@@ -48,7 +48,6 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(BTIN_F)env/env/env.c			\
 			$(BTIN_F)prompt/set_prompt.c		\
 			$(BTIN_F)alias/alias.c		\
-			$(LIB_F)my_realloc.c			\
 			$(LIB_F)my_putcolor.c			\
 			$(LIB_F)my_strcpy.c			\
 			$(LIB_F)my_putchar.c			\

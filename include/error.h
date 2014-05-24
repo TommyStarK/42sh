@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:05:19 2014 chambon emmanuel
-** Last update Sat May 24 09:13:03 2014 thomas milox
+** Last update Sat May 24 18:43:58 2014 chambon emmanuel
 */
 
 #ifndef __ERROR_H__
@@ -24,5 +24,7 @@
 # define ERR_CMD			"Shell: error: [%s] command not found.\n"
 # define SEG_HANDLER			"Segmentation Fault !\n"
 # define ACCESS_DENIED			"access : [%s]\n"
+# define WRONG_COLOR			"%s: color not found. Applying white instead.\n"
+# define INVALID_ALIAS			"Alias : invalid syntax.\n"
 
 #endif /* !__ERROR_H__ */

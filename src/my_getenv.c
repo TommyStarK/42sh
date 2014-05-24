@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Sun Dec 29 16:32:58 2013 sarda_j
-** Last update Sat May 24 00:26:32 2014 chambon emmanuel
+** Last update Sat May 24 18:39:40 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -20,7 +20,7 @@ char		*my_getenv(char **my_env, char *var)
     {
       if (!(my_env[i + 1]))
 	{
-	  printf("env variable not found : %s\n", var);
+	  fprintf(stderr, MISSING_ENV, (int)strlen(var), var);
 	  return ("FAILURE");
 	}
       i++;

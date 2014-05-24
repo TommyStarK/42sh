@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 21:47:02 2014 sarda_j
-** Last update Sat May 24 07:14:21 2014 chambon emmanuel
+** Last update Sat May 24 18:35:44 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -16,7 +16,7 @@ char		*replace_word(char *buff, t_alias *tmp, int *i)
   char		*new_buff;
 
   j = *i;
-  if ((new_buff = my_xmalloc(sizeof(char) * strlen(tmp->replace) + 1)) == NULL)
+  if (!(new_buff = my_xmalloc(sizeof(char) * strlen(tmp->replace) + 1)))
     return (NULL);
   my_strncpy(new_buff, buff, *i);
   new_buff[*i] = '\0';

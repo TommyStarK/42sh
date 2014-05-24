@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 06:17:27 2014 chambon emmanuel
-** Last update Sat May 24 07:35:12 2014 chambon emmanuel
+** Last update Sat May 24 18:41:47 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -14,7 +14,7 @@ int		list_put_start(t_alias **list, char *alias, char *replace)
 {
   t_alias	*new_elem;
 
-  if ((new_elem = my_xmalloc(sizeof(t_alias))) == NULL)
+  if (!(new_elem = my_xmalloc(sizeof(t_alias))))
     return (-1);
   new_elem->alias = alias;
   new_elem->replace = replace;
@@ -108,25 +108,22 @@ int		alias(t_sh *sh, char **opt)
     return (print_alias(sh));
   if (!(cmd = get_opt(opt)))
     return (0);
-  printf("cmd = <%s>\n", cmd);
   if (check_alias(cmd) == -1)
     {
-      fprintf(stderr, "Alias : invalid syntax.\n");
+      fprintf(stderr, INVALID_ALIAS);
       return (0);
     }
   while (cmd[i] != '=')
     i++;
   if (!(alias = my_strncpy_m(cmd, i)))
     return (0);
-  printf("alias = <%s>\n", alias);
   i += 2;
   if ((alias_size = find_quote(&cmd[i])) == -1)
     {
-      fprintf(stderr, "Alias : invalid syntax.\n");
+      fprintf(stderr, INVALID_ALIAS);
       return (0);
     }
   replace = my_strncpy_m(&cmd[i], alias_size);
-  printf("replace = <%s>\n", replace);
   if ((list_put_start(&sh->alias, alias, replace)) == -1)
     return (0);
   return (0);

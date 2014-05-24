@@ -1,66 +1,61 @@
 /*
-** gt_next_line.c for 42 in /home/chambo-e/Dropbox/epitech/42sh/groupe_milox/PSU_2013_42sh/src
+** get_next_line.c for Colle in /home/chambo-e/Dropbox/epitech/Braille
 **
 ** Made by chambon emmanuel
 ** Login   <chambo_e@epitech.net>
 **
-** Started on  Fri May 23 21:09:55 2014 chambon emmanuel
-** Last update Sat May 24 02:01:48 2014 chambon emmanuel
+** Started on  Wed Apr 30 20:30:20 2014 chambon emmanuel
+** Last update Sat May 24 18:33:32 2014 chambon emmanuel
 */
 
 #include "42.h"
 
-char		*nxt_line(char *res, const int fd, char buff[], t_it *it)
+int		read_get_next_line(int fd, int *i, int *n, char *buff)
 {
-  int		flag;
-
-  flag = 1;
-  while (flag)
+  if (*i == *n)
     {
-      if ((it->size = read(fd, buff, BUFF_SIZE)) <= 0)
-        {
-          free(res);
-          return (NULL);
-        }
-      it->j = 0;
-      while (it->j < it->size && flag)
-        {
-          if (buff[it->j] != '\n' && buff[it->j] != '\0')
-            res[(it->i)++] = buff[(it->j)++];
-          else
-            flag = 0;
-        }
-      if (flag && !(res = my_realloc(res, it->i)))
-        return (NULL);
+      *i = 0;
+      if (!(*n = read(fd, buff, BUFF_SIZE)))
+        return (1);
     }
-  ((it->j == it->size || buff[it->j] == '\0') ? buff[0] = '\0' :
-   new_buff(buff, it->j + 1 , it->size));
-  return (res);
+  return (0);
 }
 
-char		*gt_next_line(const int fd)
+int		eol_get_next_line(int fd, int *i, int *n, char *buff)
 {
-  static char	buff[BUFF_SIZE] = "";
-  char		*res;
-  static t_it	it;
-
-  if (!(res = my_xmalloc(BUFF_SIZE + 1)))
-    return (NULL);
-  it.i = 0;
-  while (buff[it.i])
+  while (buff[*i] && buff[*i] != '\n')
     {
-      if (buff[it.i] == '\n')
-        {
-          res[it.i++] = '\0';
-          new_buff(buff, it.i , it.size);
-          return (res);
-        }
-      res[it.i] = buff[(it.i)++];
+      (*i)++;
+      if (read_get_next_line(fd, i, n, buff))
+        return (1);
     }
-  if (buff[it.i] != EOF && !(res = my_realloc(res, it.i)))
+  return (0);
+}
+
+char		*gt_next_line(int fd)
+{
+  static char	buff[BUFF_SIZE];
+  static int	i = 0;
+  static int	n = 0;
+  int		x;
+  char		*str;
+
+  str = NULL;
+  x = 0;
+  if (read_get_next_line(fd, &i, &n, buff))
+    return (0);
+  if (!(str = my_xmalloc(sizeof(char) * BUFF_SIZE)))
     return (NULL);
-  if (!(res = nxt_line(res, fd, buff, &it)))
-    return (NULL);
-  res[it.i] = '\0';
-  return (res);
+  memset(str, 0, BUFF_SIZE);
+  while (buff[i] && buff[i] != '\n' && n < BUFF_SIZE)
+    {
+      str[x++] = buff[i++];
+      if (read_get_next_line(fd, &i, &n, buff))
+        return (str);
+    }
+  if (x == BUFF_SIZE)
+    if (eol_get_next_line(fd, &i, &n, buff))
+      return (str);
+  i++;
+  return (str);
 }
