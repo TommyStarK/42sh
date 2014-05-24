@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 23:10:07 2014 chambon emmanuel
-** Last update Sat May 24 00:45:00 2014 chambon emmanuel
+** Last update Sat May 24 05:02:26 2014 thomas milox
 */
 
 #ifndef __EXEC_H__
@@ -32,9 +32,6 @@ int                     make_d_rredir(t_sh * , t_bin *);
 int                     make_lredir(t_sh * , t_bin *);
 int                     make_d_lredir(t_sh * , t_bin *);
 /* sh_operators_handle.c */
-t_exe                   *set_flux_rredir(t_exe *, char **, int);
-t_exe                   *set_flux_d_rredir(t_exe *, char **, int);
-t_exe                   *set_flux_lredir(t_exe *, char **, int);
 char                    *handle_d_lredir(char *, int);
 /* sh_get_path.c */
 int                     check_if_env_variable_exist(char **, char *);
@@ -42,6 +39,7 @@ char                    *get_path(t_sh *, t_bin *, int);
 char                    *patch_path_to_execve(t_bin *, int, char *);
 /* sh_signals.c */
 void                    signal_seg(int);
+int			get_signal_end_cmd(int);
 /* TOOLS */
 char                    *gt_next_line(const int);
 

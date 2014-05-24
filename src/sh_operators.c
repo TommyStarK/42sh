@@ -5,41 +5,66 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 01:14:08 2014 thomas milox
-** Last update Sat May 24 02:09:02 2014 chambon emmanuel
+** Last update Sat May 24 05:19:55 2014 thomas milox
 */
 
 #include "42.h"
 
 int			make_rredir(t_sh *sh, t_bin *tmp)
 {
-  if (!(sh->exe = set_flux_rredir(sh->exe, tmp->r->cmd, 0)))
+  static t_exe		ret;
+
+  if ((ret.stdout = dup(1)) == -1)
+    return (0);
+  if ((ret.pipefd[0] = open(tmp->r->cmd[0], O_CREAT| O_TRUNC |O_WRONLY,
+			    S_IRUSR | S_IWUSR)) == -1)
+    return (0);
+  if (dup2(ret.pipefd[0], 1) == -1)
     return (0);
   if (!(resolve_binary_tree(sh, &tmp->l)))
     return (0);
-  if (!(sh->exe = set_flux_rredir(sh->exe, tmp->r->cmd, 1)))
+  if (close(ret.pipefd[0]) == -1 || dup2(ret.stdout, 1) == -1
+      || close(ret.stdout) == -1)
     return (0);
   return (1);
 }
 
 int			make_d_rredir(t_sh *sh, t_bin *tmp)
 {
-  if (!(sh->exe = set_flux_d_rredir(sh->exe, tmp->r->cmd, 0)))
+  static t_exe		ret;
+
+  if ((ret.stdout = dup(1)) == -1)
+    return (0);
+  if ((ret.pipefd[0] = open(tmp->r->cmd[0], O_CREAT| O_APPEND | O_WRONLY,
+			    S_IRUSR | S_IWUSR)) == -1)
+    return (0);
+  if (dup2(ret.pipefd[0], 1) == -1)
     return (0);
   if (!(resolve_binary_tree(sh, &tmp->l)))
     return (0);
-  if (!(sh->exe = set_flux_d_rredir(sh->exe, tmp->r->cmd, 1)))
+  close(ret.pipefd[0]);
+  if (dup2(ret.stdout, 1) == -1)
     return (0);
+  close(ret.stdout);
   return (1);
 }
 
 int			make_lredir(t_sh *sh, t_bin *tmp)
 {
-  if (!(sh->exe = set_flux_lredir(sh->exe, tmp->r->cmd, 0)))
+  static t_exe		ret;
+
+  if ((ret.stdin = dup(0)) == -1)
+    return (0);
+  if ((ret.pipefd[0] = open(tmp->r->cmd[0], O_RDONLY)) == -1)
+    return (0);
+  if (dup2(ret.pipefd[0], 0) == -1)
     return (0);
   if (!(resolve_binary_tree(sh, &tmp->l)))
     return (0);
-  if (!(sh->exe = set_flux_lredir(sh->exe, tmp->r->cmd, 1)))
+  if (dup2(ret.stdin, 0) == -1)
     return (0);
+  close(ret.stdin);
+  close(ret.pipefd[0]);
   return (1);
 }
 

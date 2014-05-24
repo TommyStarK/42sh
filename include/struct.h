@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Sat May 24 00:16:18 2014 chambon emmanuel
+** Last update Sat May 24 04:35:26 2014 thomas milox
 */
 
 #ifndef __STRUCT_H__
@@ -28,6 +28,7 @@ typedef struct		s_exe
 
 typedef struct		s_bin
 {
+  int			success;
   char			*op;
   char			**cmd;
   struct s_bin		*r;

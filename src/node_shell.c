@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:17:13 2014 chambon emmanuel
-** Last update Sat May 24 00:49:40 2014 chambon emmanuel
+** Last update Sat May 24 04:37:40 2014 thomas milox
 */
 
 #include "42.h"
@@ -16,9 +16,7 @@ int		node_shell(t_sh *sh)
   int		ret;
 
   bzero(buffer, 1024);
-  /* printf("yolo\n"); */
   print_prompt(sh);
-  /* printf("yola\n"); */
   if ((ret = read(0, buffer, 1024)) <= 1)
     return (-1);
   buffer[ret - 1] = 0;

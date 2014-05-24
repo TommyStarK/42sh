@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Sat May 24 02:08:43 2014 chambon emmanuel
+** Last update Sat May 24 05:04:08 2014 thomas milox
 */
 
 #include "42.h"
@@ -30,7 +30,7 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
   else
     {
       wait(&status);
-      signal_seg(status);
+      tmp->success = get_signal_end_cmd(status);
     }
   return (1);
 }
@@ -59,7 +59,7 @@ int		do_exec(t_sh *sh, t_bin *tmp)
   else
     {
       wait(&status);
-      signal_seg(status);
+      tmp->success = get_signal_end_cmd(status);
     }
   return (1);
 }
