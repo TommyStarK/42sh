@@ -1,5 +1,5 @@
 #alias ne='emacs -nw'
-set-prompt %red\[%endcolor\%blue\$USERNAME\%endcolor\%red\]%endcolor\%green\=%endcolor\
-#QNetSoul
+prompt : %red\[%endcolor\%blue\$USERNAME\@$HOSTNAME\ - $PWD\%endcolor\%red\]%endcolor\%green\>%endcolor\
+QNetSoul
 
 #alias ls='ls --color=auto'

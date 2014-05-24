@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 15:25:40 2014 chambon emmanuel
-** Last update Sat May 24 02:11:36 2014 chambon emmanuel
+** Last update Sat May 24 04:46:47 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -67,6 +67,7 @@ int		cd_oldpwd(t_sh *sh)
       perror("cd");
       return (-1);
     }
+  printf("%s\n", oldpwd);
   free(oldpwd);
   return (0);
 }

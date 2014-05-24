@@ -5,11 +5,10 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Wed Oct  9 22:18:27 2013 emmanuel chambon
-** Last update Sat May 24 01:52:36 2014 chambon emmanuel
+** Last update Sat May 24 05:05:46 2014 chambon emmanuel
 */
 
-#include <string.h>
-#include <stdlib.h>
+#include "42.h"
 
 char	*my_strcat(char *dest, char *src)
 {

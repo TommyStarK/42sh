@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 22:00:29 2014 sarda_j
-** Last update Sat May 24 01:55:22 2014 chambon emmanuel
+** Last update Sat May 24 04:32:45 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -60,5 +60,6 @@ int		print_prompt(t_sh *sh)
 	  i++;
 	}
     }
-  return (size);
+  my_putchar(' ');
+  return (size + 1);
 }
