@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:05:19 2014 chambon emmanuel
-** Last update Sat May 24 01:40:54 2014 chambon emmanuel
+** Last update Sat May 24 09:13:03 2014 thomas milox
 */
 
 #ifndef __ERROR_H__
@@ -21,7 +21,7 @@
 # define ERR_ENV			"Error: 'ENV' is NULL.\n"
 # define ERR_FORK			"Error: with 'fork' syscall function.\n"
 # define ERR_MALLOC			"Error: something wrong occured with 'malloc syscall'.\n"
-# define ERR_CMD			"Shell: error-> [%s] command not found.\n"
+# define ERR_CMD			"Shell: error: [%s] command not found.\n"
 # define SEG_HANDLER			"Segmentation Fault !\n"
 # define ACCESS_DENIED			"access : [%s]\n"
 

@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Wed May 21 22:13:32 2014 sarda_j
-** Last update Sat May 24 00:43:52 2014 chambon emmanuel
+** Last update Sat May 24 09:14:37 2014 thomas milox
 */
 
 #include "42.h"
@@ -44,7 +44,7 @@ int		get_color_code(char *color)
     return (0);
   else
     {
-      fprintf(stderr, "%s : color not found. Applying white instead.\n", color);
+      fprintf(stderr, "%s: color not found. Applying white instead.\n", color);
       return (0);
     }
 }

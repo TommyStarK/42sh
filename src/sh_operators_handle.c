@@ -5,10 +5,26 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 15:35:55 2014 thomas milox
-** Last update Sat May 24 05:01:29 2014 thomas milox
+** Last update Sat May 24 09:31:57 2014 thomas milox
 */
 
 #include "42.h"
+
+void                    make_separators(t_sh *sh, t_bin *tmp)
+{
+  if (!(strcmp(tmp->op, "&&")))
+    {
+      resolve_binary_tree(sh, &tmp->l);
+      if (!(sh->success))
+	resolve_binary_tree(sh, &tmp->r);
+    }
+  else if (!(strcmp(tmp->op, "||")))
+    {
+      resolve_binary_tree(sh, &tmp->l);
+      if (sh->success > 0)
+	resolve_binary_tree(sh, &tmp->r);
+    }
+}
 
 char			*handle_d_lredir(char *match, int fd)
 {

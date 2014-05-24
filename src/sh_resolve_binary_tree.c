@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Sat May 24 05:04:08 2014 thomas milox
+** Last update Sat May 24 09:33:30 2014 thomas milox
 */
 
 #include "42.h"
@@ -18,6 +18,7 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
   if (access(tmp->cmd[0], R_OK) == -1)
     {
       fprintf(stderr, ACCESS_DENIED, strerror(errno));
+      sh->success = 1;
       return (1);
     }
   if ((pid = vfork()) == -1)
@@ -30,7 +31,7 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
   else
     {
       wait(&status);
-      tmp->success = get_signal_end_cmd(status);
+      sh->success = get_signal_end_cmd(status);
     }
   return (1);
 }
@@ -47,7 +48,7 @@ int		do_exec(t_sh *sh, t_bin *tmp)
   if (!(cmd_to_exec = get_path(sh, tmp, 0)))
     {
       fprintf(stderr, ERR_CMD, tmp->cmd[0]);
-      return (1);
+      return ((sh->success = 1));
     }
   if ((pid = vfork()) == -1)
     {
@@ -59,7 +60,7 @@ int		do_exec(t_sh *sh, t_bin *tmp)
   else
     {
       wait(&status);
-      tmp->success = get_signal_end_cmd(status);
+      sh->success = get_signal_end_cmd(status);
     }
   return (1);
 }
@@ -71,6 +72,8 @@ int		dispatch_sep_or_op(t_sh *sh, t_bin *tmp)
       resolve_binary_tree(sh, &tmp->l);
       resolve_binary_tree(sh, &tmp->r);
     }
+  else if (!(strcmp(tmp->op, "&&")) || !(strcmp(tmp->op, "||")))
+    make_separators(sh , tmp);
   else if (!(strcmp(tmp->op, "<")))
     return (make_lredir(sh, tmp));
   else if (!(strcmp(tmp->op, "<<")))
