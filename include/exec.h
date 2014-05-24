@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 23:10:07 2014 chambon emmanuel
-** Last update Sat May 24 09:25:04 2014 thomas milox
+** Last update Sat May 24 23:13:31 2014 chambon emmanuel
 */
 
 #ifndef __EXEC_H__
@@ -21,7 +21,7 @@ void                    patch_sep(char *, int, char *);
 void                    patch_op(char *, int, char *);
 void                    free_binary_tree(t_bin *);
 /* sh_resolve_binary_tree */
-int                     do_exec(t_sh *, t_bin *);
+int                     do_exec(t_sh *, t_bin *, int);
 int                     do_exec_local(t_sh *, t_bin *);
 int                     dispatch_sep_or_op(t_sh *, t_bin *);
 int                     resolve_binary_tree(t_sh *, t_bin **);

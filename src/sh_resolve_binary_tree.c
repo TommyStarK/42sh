@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Sat May 24 09:33:30 2014 thomas milox
+** Last update Sat May 24 22:51:09 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -36,9 +36,8 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
   return (1);
 }
 
-int		do_exec(t_sh *sh, t_bin *tmp)
+int		do_exec(t_sh *sh, t_bin *tmp, int status)
 {
-  int		status;
   char		*cmd_to_exec;
   pid_t		pid;
 
@@ -62,6 +61,7 @@ int		do_exec(t_sh *sh, t_bin *tmp)
       wait(&status);
       sh->success = get_signal_end_cmd(status);
     }
+  free(cmd_to_exec);
   return (1);
 }
 
@@ -101,7 +101,7 @@ int		resolve_binary_tree(t_sh *sh, t_bin **tree)
 	return (1);
       else
 	{
-	  if (!(do_exec(sh, tmp)))
+	  if (!(do_exec(sh, tmp, 0)))
 	    return (0);
 	}
     }

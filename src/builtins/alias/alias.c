@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 06:17:27 2014 chambon emmanuel
-** Last update Sat May 24 18:41:47 2014 chambon emmanuel
+** Last update Sat May 24 22:11:03 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -95,7 +95,7 @@ int		print_alias(t_sh *sh)
   return (0);
 }
 
-int		alias(t_sh *sh, char **opt)
+int		alias(t_sh *sh, char **opt, int flag)
 {
   int           i;
   int           alias_size;
@@ -126,5 +126,8 @@ int		alias(t_sh *sh, char **opt)
   replace = my_strncpy_m(&cmd[i], alias_size);
   if ((list_put_start(&sh->alias, alias, replace)) == -1)
     return (0);
+  if (flag)
+    free_tab(opt);
+  free(cmd);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 00:32:22 2014 chambon emmanuel
-** Last update Sat May 24 00:46:14 2014 chambon emmanuel
+** Last update Sat May 24 22:01:40 2014 chambon emmanuel
 */
 
 #ifndef __PROMPT_H__
@@ -18,6 +18,6 @@ int		my_varlen(char *);
 char		*my_strncpy_m(char *, int);
 int		get_color_code(char *);
 char		*my_getenv(char **, char *);
-int		set_prompt(t_sh *, char **);
+int		set_prompt(t_sh *, char **, int);
 
 #endif /* !__PROMPT_H__ */

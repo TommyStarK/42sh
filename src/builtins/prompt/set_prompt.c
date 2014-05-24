@@ -5,17 +5,15 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 00:12:02 2014 chambon emmanuel
-** Last update Sat May 24 18:34:20 2014 chambon emmanuel
+** Last update Sat May 24 22:07:14 2014 chambon emmanuel
 */
 
 #include "42.h"
 
-int             set_prompt(t_sh *sh, char **opt)
+int             set_prompt(t_sh *sh, char **opt, int flag)
 {
   char          *prompt;
 
-  if (!(prompt = my_xmalloc(sizeof(char) * strlen(opt[0]) + 1)))
-    return (0);
   if (!(prompt = my_strncpy_m(opt[0], (int)strlen(opt[0]))))
     return (0);
   prompt[(int)strlen(opt[0])] = '\0';
@@ -26,5 +24,7 @@ int             set_prompt(t_sh *sh, char **opt)
       free(sh->prompt);
       sh->prompt = prompt;
     }
+  if (flag)
+    free_tab(opt);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 22:00:29 2014 sarda_j
-** Last update Sat May 24 04:32:45 2014 chambon emmanuel
+** Last update Sat May 24 22:16:59 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -20,19 +20,23 @@ void		case_color(t_sh *sh, int *color, int *i)
     return ;
   *color = get_color_code(var);
   *i = *i + var_len;
+  free(var);
 }
 
 int		case_var(t_sh *sh, int *color, int *i)
 {
   char		*var;
   int		var_len;
+  int		ret;
 
   var_len = my_varlen(&(sh->prompt[*i]));
   if (!(var = my_strncpy_m(&(sh->prompt[*i + 1]), var_len - 1)))
     return (-1);
   my_putstr_color(my_getenv(sh->env, var), *color);
   *i = *i + var_len;
-  return ((int)strlen(my_getenv(sh->env, var)));
+  ret = (int)strlen(my_getenv(sh->env, var));
+  free(var);
+  return (ret);
 }
 
 int		print_prompt(t_sh *sh)

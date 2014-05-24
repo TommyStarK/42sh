@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 01:14:08 2014 thomas milox
-** Last update Sat May 24 05:19:55 2014 thomas milox
+** Last update Sat May 24 22:48:25 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -16,7 +16,7 @@ int			make_rredir(t_sh *sh, t_bin *tmp)
 
   if ((ret.stdout = dup(1)) == -1)
     return (0);
-  if ((ret.pipefd[0] = open(tmp->r->cmd[0], O_CREAT| O_TRUNC |O_WRONLY,
+  if ((ret.pipefd[0] = open(tmp->r->cmd[0], O_CREAT | O_TRUNC | O_WRONLY,
 			    S_IRUSR | S_IWUSR)) == -1)
     return (0);
   if (dup2(ret.pipefd[0], 1) == -1)

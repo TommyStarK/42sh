@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 21:47:02 2014 sarda_j
-** Last update Sat May 24 18:35:44 2014 chambon emmanuel
+** Last update Sat May 24 23:15:02 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -23,7 +23,7 @@ char		*replace_word(char *buff, t_alias *tmp, int *i)
   strcat(new_buff, tmp->replace);
   strcat(new_buff, &buff[j + strlen(tmp->alias)]);
   *i = *i + (int)strlen(tmp->replace);
-  /* free(buff); */
+  free(buff);
   return (new_buff);
 }
 

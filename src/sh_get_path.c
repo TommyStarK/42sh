@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May  3 06:12:59 2014 thomas milox
-** Last update Sat May 24 02:06:10 2014 chambon emmanuel
+** Last update Sat May 24 22:53:59 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -59,9 +59,11 @@ char		*get_path(t_sh *sh, t_bin *tmp, int i)
   while (path_tab[++i])
     {
       size = ((int)strlen(path_tab[i]) + (int)strlen(tmp->cmd[0]) + 2);
-      if (!(path = my_xmalloc(sizeof(char) * size)))
-	return (NULL);
-      path = patch_path_to_execve(tmp, size, path_tab[i]);
+      if (!(path = patch_path_to_execve(tmp, size, path_tab[i])))
+	{
+	  free_tab(path_tab);
+	  return (NULL);
+	}
       if (!(access(path, F_OK)))
 	{
 	  free_tab(path_tab);
@@ -70,5 +72,6 @@ char		*get_path(t_sh *sh, t_bin *tmp, int i)
       else
 	free(path);
     }
+  free_tab(path_tab);
   return (NULL);
 }
