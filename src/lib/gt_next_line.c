@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Fri May 23 21:09:55 2014 chambon emmanuel
-** Last update Fri May 23 21:11:02 2014 chambon emmanuel
+** Last update Sat May 24 02:01:48 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -30,7 +30,7 @@ char		*nxt_line(char *res, const int fd, char buff[], t_it *it)
           else
             flag = 0;
         }
-      if (flag && (res = my_realloc(res, it->i)) == NULL)
+      if (flag && !(res = my_realloc(res, it->i)))
         return (NULL);
     }
   ((it->j == it->size || buff[it->j] == '\0') ? buff[0] = '\0' :
@@ -44,7 +44,7 @@ char		*gt_next_line(const int fd)
   char		*res;
   static t_it	it;
 
-  if ((res = malloc(BUFF_SIZE + 1)) == NULL)
+  if (!(res = my_xmalloc(BUFF_SIZE + 1)))
     return (NULL);
   it.i = 0;
   while (buff[it.i])
@@ -57,9 +57,9 @@ char		*gt_next_line(const int fd)
         }
       res[it.i] = buff[(it.i)++];
     }
-  if (buff[it.i] != EOF && (res = my_realloc(res, it.i)) == NULL)
+  if (buff[it.i] != EOF && !(res = my_realloc(res, it.i)))
     return (NULL);
-  if ((res = nxt_line(res, fd, buff, &it)) == NULL)
+  if (!(res = nxt_line(res, fd, buff, &it)))
     return (NULL);
   res[it.i] = '\0';
   return (res);

@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Fri May 23 21:11:34 2014 chambon emmanuel
-** Last update Fri May 23 21:13:18 2014 chambon emmanuel
+** Last update Sat May 24 02:00:10 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -26,7 +26,7 @@ char            *my_realloc(char *str, int size)
   int           i;
 
   i = 0;
-  if ((res = malloc(size + BUFF_SIZE + 1)) == NULL)
+  if (!(res = my_xmalloc(size + BUFF_SIZE + 1)))
     return (NULL);
   while (i < size)
     res[i] = str[i++];

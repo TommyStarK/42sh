@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sun Apr 13 19:14:23 2014 chambon emmanuel
-** Last update Fri May 23 21:57:54 2014 chambon emmanuel
+** Last update Sat May 24 02:00:53 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -15,7 +15,7 @@ void	*my_xmalloc(size_t size)
   char	*dest;
 
   dest = malloc(size);
-  if (dest == NULL)
+  if (!dest)
     fprintf(stderr, ERR_MALLOC);
   return (dest);
 }

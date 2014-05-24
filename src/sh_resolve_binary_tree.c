@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Fri May 23 22:00:20 2014 chambon emmanuel
+** Last update Sat May 24 02:08:43 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -44,7 +44,7 @@ int		do_exec(t_sh *sh, t_bin *tmp)
   if ((tmp->cmd[0][0] == '.' && tmp->cmd[0][1] == '/')
       || (tmp->cmd[0][0] == '/'))
     return (do_exec_local(sh, tmp));
-  if ((cmd_to_exec = get_path(sh, tmp, 0)) == NULL)
+  if (!(cmd_to_exec = get_path(sh, tmp, 0)))
     {
       fprintf(stderr, ERR_CMD, tmp->cmd[0]);
       return (1);
@@ -98,13 +98,13 @@ int		resolve_binary_tree(t_sh *sh, t_bin **tree)
 	return (1);
       else
 	{
-	  if (do_exec(sh, tmp) == 0)
+	  if (!(do_exec(sh, tmp)))
 	    return (0);
 	}
     }
   else
     {
-      if (dispatch_sep_or_op(sh, tmp) == 0)
+      if (!(dispatch_sep_or_op(sh, tmp)))
 	return (0);
     }
   return (1);

@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May  3 06:12:59 2014 thomas milox
-** Last update Fri May 23 21:06:05 2014 chambon emmanuel
+** Last update Sat May 24 02:06:10 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -18,7 +18,7 @@ char		*patch_path_to_execve(t_bin *tmp, int size, char *current_path)
 
   x = (int)strlen(current_path);
   y = (int)strlen(tmp->cmd[0]);
-  if ((path = malloc(sizeof(char) * size)) == NULL)
+  if (!(path = my_xmalloc(sizeof(char) * size)))
     return (NULL);
   my_strncpy(path, current_path, x);
   path[x] = '/';
@@ -51,18 +51,18 @@ char		*get_path(t_sh *sh, t_bin *tmp, int i)
   char		*path;
   char		**path_tab;
 
-  if ((i = check_if_env_variable_exist(sh->env, "PATH=")) == 0)
+  if (!(i = check_if_env_variable_exist(sh->env, "PATH=")))
     return (NULL);
-  if ((path_tab = my_str_to_wordtab(&(sh->env[i][5]), ':')) == NULL)
+  if (!(path_tab = my_str_to_wordtab(&(sh->env[i][5]), ':')))
     return (NULL);
   i = -1;
   while (path_tab[++i])
     {
       size = ((int)strlen(path_tab[i]) + (int)strlen(tmp->cmd[0]) + 2);
-      if ((path = malloc(sizeof(char) * size)) == NULL)
+      if (!(path = my_xmalloc(sizeof(char) * size)))
 	return (NULL);
       path = patch_path_to_execve(tmp, size, path_tab[i]);
-      if (access(path, F_OK) == 0)
+      if (!(access(path, F_OK)))
 	{
 	  free_tab(path_tab);
 	  return (path);

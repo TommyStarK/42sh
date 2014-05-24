@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:23:57 2014 thomas milox
-** Last update Fri May 23 21:21:59 2014 chambon emmanuel
+** Last update Sat May 24 02:04:45 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -16,7 +16,7 @@ char		*patch_op_or_sep(char *cmd, int pos, int flag)
 
   if (!cmd)
     return (NULL);
-  if ((res = malloc(sizeof(char) * 3)) == NULL)
+  if (!(res = my_xmalloc(sizeof(char) * 3)))
     return (NULL);
   memset(res, 0, 3);
   if (!flag)
@@ -33,7 +33,7 @@ char		*patch_cmd(char *s, int size)
 
   if (!s)
     return (NULL);
-  if ((ret = malloc(sizeof(char) * (size + 1))) == NULL)
+  if (!(ret = my_xmalloc(sizeof(char) * (size + 1))))
     {
       fprintf(stderr, ERR_MALLOC);
       return (NULL);
@@ -54,7 +54,7 @@ t_bin		*new_branch(char *current_cmd, int size, char *current_op)
   t_bin		*tmp;
 
   cmd_part = NULL;
-  if ((tmp = malloc(sizeof(t_bin))) == NULL)
+  if (!(tmp = my_xmalloc(sizeof(t_bin))))
     return (NULL);
   if (!current_cmd)
     {

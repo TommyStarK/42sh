@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 15:25:40 2014 chambon emmanuel
-** Last update Fri May 23 08:33:02 2014 chambon emmanuel
+** Last update Sat May 24 02:11:36 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -29,7 +29,7 @@ int		cd_home(t_sh *sh)
 {
   char		*home;
 
-  if ((home = get_item(sh, "HOME=")) == NULL)
+  if (!(home = get_item(sh, "HOME=")))
     return (-1);
   if (chdir(home))
     {
@@ -46,7 +46,7 @@ void		set_env_cd(char *oldpwd, t_sh *sh)
   char		newpwd[1024];
 
   bzero(&newpwd, 1024);
-  if ((getcwd(newpwd, sizeof(newpwd))== NULL))
+  if (!(getcwd(newpwd, sizeof(newpwd))))
     {
       perror("cd :");
       return ;
@@ -58,11 +58,16 @@ void		set_env_cd(char *oldpwd, t_sh *sh)
 
 int		cd_oldpwd(t_sh *sh)
 {
-  if (chdir(get_item(sh, "OLDPWD=")) == -1)
+  char		*oldpwd;
+
+  if (!(oldpwd = get_item(sh, "OLDPWD=")))
+    return (-1);
+  if (chdir(oldpwd) == -1)
     {
       perror("cd");
       return (-1);
     }
+  free(oldpwd);
   return (0);
 }
 
@@ -93,7 +98,7 @@ int		cd(char **opt, t_sh *sh)
   if (tab_len(opt, "cd") > 1)
     return (0);
   bzero(&oldpwd, 1024);
-  if ((getcwd(oldpwd, sizeof(oldpwd))== NULL))
+  if (!(getcwd(oldpwd, sizeof(oldpwd))))
     {
       perror("cd");
       return (0);

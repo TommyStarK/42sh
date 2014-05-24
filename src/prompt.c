@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 22:00:29 2014 sarda_j
-** Last update Sat May 24 00:39:15 2014 chambon emmanuel
+** Last update Sat May 24 01:55:22 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -43,7 +43,7 @@ int		print_prompt(t_sh *sh)
 
   i = 0;
   color = 0;
-  if (sh->prompt == NULL)
+  if (!sh->prompt)
     my_putstr("$> ");
   else
     {

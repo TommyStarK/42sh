@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Wed Oct  9 22:18:27 2013 emmanuel chambon
-** Last update Wed May 14 15:02:30 2014 chambon emmanuel
+** Last update Sat May 24 01:52:36 2014 chambon emmanuel
 */
 
 #include <string.h>
@@ -21,7 +21,8 @@ char	*my_strcat(char *dest, char *src)
   inc = 0;
   i = strlen(src);
   j = strlen(dest);
-  ret = malloc((i + j + 1) * sizeof(char));
+  if (!(ret = my_xmalloc((i + j + 1) * sizeof(char))))
+    return (NULL);
   ret[i + j] = '\0';
   while (dest[inc])
     {
