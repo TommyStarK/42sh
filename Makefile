@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sat May 24 00:35:58 2014 chambon emmanuel
+## Last update Sat May 24 06:30:17 2014 chambon emmanuel
 ##
 
 CC		=	gcc -g
@@ -26,6 +26,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(SRC_F)main.c				\
 			$(SRC_F)node_shell.c			\
 			$(SRC_F)get_env.c			\
+			$(SRC_F)alias.c			\
 			$(SRC_F)prompt.c			\
 			$(SRC_F)config.c			\
 			$(SRC_F)my_getenv.c			\
@@ -45,6 +46,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(BTIN_F)env/unsetenv/unsetenv.c	\
 			$(BTIN_F)env/env/env.c			\
 			$(BTIN_F)prompt/set_prompt.c		\
+			$(BTIN_F)alias/alias.c		\
 			$(LIB_F)my_realloc.c			\
 			$(LIB_F)my_putcolor.c			\
 			$(LIB_F)my_putchar.c			\

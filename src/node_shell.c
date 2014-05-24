@@ -5,22 +5,26 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:17:13 2014 chambon emmanuel
-** Last update Sat May 24 04:37:40 2014 thomas milox
+** Last update Sat May 24 06:57:02 2014 chambon emmanuel
 */
 
 #include "42.h"
 
 int		node_shell(t_sh *sh)
 {
-  char		buffer[1024];
+  char		*buffer;
   int		ret;
 
+  if (!(buffer = my_xmalloc(1024)))
+    return (-1);
   bzero(buffer, 1024);
   print_prompt(sh);
   if ((ret = read(0, buffer, 1024)) <= 1)
     return (-1);
   buffer[ret - 1] = 0;
   epur_str(buffer);
+  buffer = replace_alias(buffer, sh);
+  printf("buffer = <%s>\n", buffer);
   sh->tree = create_binary_tree(&sh->tree, buffer, (int)strlen(buffer));
   if (!(resolve_binary_tree(sh, &sh->tree)))
     return (-1);

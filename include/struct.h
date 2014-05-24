@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Sat May 24 04:35:26 2014 thomas milox
+** Last update Sat May 24 06:08:44 2014 chambon emmanuel
 */
 
 #ifndef __STRUCT_H__
@@ -42,15 +42,23 @@ typedef struct		s_alias
   struct s_alias	*next;
 }			t_alias;
 
+typedef struct		s_misc
+{
+  int			last_return;
+  pid_t			pid_pgr;
+  pid_t			last_pgr;
+  char			**av;
+  int			ac;
+}			t_misc;
+
 typedef struct		s_sh
 {
   char			**env;
   char			*prompt;
-  /* int			last_return; */
-  /* pid_t			pid_pgr; */
   t_exe			*exe;
   t_bin			*tree;
   t_alias		*alias;
+  t_misc		misc;
 }			t_sh;
 
 #endif /* !__STRUCT_H__ */
