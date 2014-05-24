@@ -13,4 +13,4 @@ alias ls='ls --color'
 #   ex : "alias ls='ls --color'  #
 #                                #
 ##################################
-prompt : %red\[%endcolor\%blue\$LOGNAME\@$HOSTNAME\%endcolor\%red\]%endcolor\%green\>%endcolor\
+prompt : %red\[%endcolor\%blue\$LOGNAME\@$HOSTNAME\ - $PWD\$OLDPWD\%endcolor\%red\]%endcolor\%green\>%endcolor\
