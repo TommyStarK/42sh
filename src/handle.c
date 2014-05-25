@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 **
 ** Started on  Sat May 24 23:12:53 2014 Dorian Amouroux
-** Last update Sun May 25 17:17:37 2014 Dorian Amouroux
+** Last update Sun May 25 17:36:25 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -35,6 +35,8 @@ int	handle_eot(t_editor *editor)
 void	handle_winch(int sig_handler)
 {
   USELESS(sig_handler);
-  /* if (ioctl(0, TIOCGWINSZ, &size_term) == -1) */
-  /*   perror("ioctl"); */
+  if (signal(SIGWINCH, &handle_winch) == SIG_ERR)
+    perror("signal");
+  if (ioctl(0, TIOCGWINSZ, &size_term) == -1)
+    perror("ioctl");
 }
