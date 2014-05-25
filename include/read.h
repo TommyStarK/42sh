@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sun May 25 05:23:49 2014 chambon emmanuel
-** Last update Sun May 25 08:15:13 2014 Dorian Amouroux
+** Last update Sun May 25 08:55:29 2014 Dorian Amouroux
 */
 
 #ifndef __READ_H__
@@ -61,7 +61,7 @@ int			add_command_history(t_hist **, char *);
 t_hist                  *get_last(t_hist *);
 int			history_up(t_editor *);
 int			history_down(t_editor *);
-void			show_history(t_hist *);
+int			show_history(t_hist *);
 
 extern struct winsize	size_term;
 
