@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:23:57 2014 thomas milox
-** Last update Sun May 25 03:42:21 2014 thomas milox
+** Last update Sun May 25 17:23:42 2014 thomas milox
 */
 
 #include "42.h"
@@ -81,17 +81,17 @@ t_bin		*create_binary_tree(t_bin **tree, char *s, int z)
   t.sep = -1;
   while (++t.sep < 2)
     {
-      t.end = z;
+      t.end = z - 1;
       while (t.end >= 0)
 	{
 	  op = patch_op_or_sep(s, t.end, t.sep);
-	  t.len = (int)strlen(op);
+	  t.len = (int)strlen(op) + 1;
 	  if (op[0])
 	    {
 	      *tree = new_branch(NULL, 0, op);
-	      (*tree)->l = create_binary_tree(&((*tree)->l), s, t.end - t.len);
-	      (*tree)->r = create_binary_tree(&((*tree)->r), &s[t.end + t.len],
-					      (z - t.end - t.len));
+	      (*tree)->l = create_binary_tree(&((*tree)->l), s, t.end - t.len + 2);
+	      (*tree)->r = create_binary_tree(&((*tree)->r), &s[t.end + t.len - 1],
+					      (z - t.end - t.len + 1));
 	      return (*tree);
 	    }
 	  free(op);
