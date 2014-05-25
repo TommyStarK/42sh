@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sun May 25 01:46:06 2014 chambon emmanuel
+## Last update Sun May 25 04:04:35 2014 chambon emmanuel
 ##
 
 CC		=	gcc -g
@@ -44,6 +44,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(BTIN_F)cd/cd.c			\
 			$(BTIN_F)cd/cd_bis.c			\
 			$(BTIN_F)echo/echo.c			\
+			$(BTIN_F)echo/my_putstr_echo.c			\
 			$(BTIN_F)env/setenv/setenv.c		\
 			$(BTIN_F)env/unsetenv/unsetenv.c	\
 			$(BTIN_F)env/env/env.c			\

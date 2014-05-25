@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May  8 21:18:56 2014 chambon emmanuel
-** Last update Thu May 22 15:13:43 2014 chambon emmanuel
+** Last update Sun May 25 04:04:42 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -56,35 +56,6 @@ int		get_flag(char *flag, char *str)
       i++;
     }
   return (1);
-}
-
-void		my_putstr_echo(char *str, int flag)
-{
-  int		i;
-
-  i = 0;
-  while (str[i])
-    {
-      if (flag >= 2 && (str[i] == '\\') && str[i + 1])
-	{
-	  if (str[i + 1] == 'a' || str[i + 1] == 'b' || str[i + 1] == 'f')
-	    my_putchar(str[i + 1] - 90);
-	  else if (str[i + 1] == 't')
-	    my_putchar(9);
-	  else if (str[i + 1] == 'n')
-	    my_putchar(10);
-	  else if (str[i + 1] == 'v')
-	    my_putchar(11);
-	  else if (str[i + 1] == 'r')
-	    my_putchar(3);
-	  else
-	    my_putchar('\\');
-	  i++;
-	}
-      else
-	my_putchar(str[i]);
-      i++;
-    }
 }
 
 int		print_arg(char **opt, char flag)
