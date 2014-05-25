@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Thu May 15 23:31:56 2014 thomas milox
-** Last update Sun May 25 17:21:50 2014 thomas milox
+** Last update Sun May 25 18:35:27 2014 thomas milox
 */
 
 #include "42.h"
@@ -14,7 +14,7 @@ void		patch_sep(char *cmd, int pos, char *res)
 {
   if (strlen(&cmd[pos]) > 1 && cmd[pos] == ';')
     my_strncpy(res, ";", 1);
-  else if (cmd[pos] == '|' && cmd[pos - 1] == '|')
+  else if (strlen(&cmd[pos]) > 2 && cmd[pos] == '|' && cmd[pos - 1] == '|')
     my_strncpy(res, "||", 2);
   else if (cmd[pos] == '&' && cmd[pos - 1] == '&')
     my_strncpy(res, "&&", 2);
@@ -28,7 +28,7 @@ void		patch_op(char *cmd, int pos, char *res)
     my_strncpy(res, "<<", 2);
   else if (cmd[pos] == '>' && cmd[pos - 1] != '>')
     my_strncpy(res, ">", 1);
-  else if (cmd[pos] == '>' && cmd[pos - 1] == '>')
+  else if (strlen(&cmd[pos]) > 2 && cmd[pos] == '>' && cmd[pos - 1] == '>')
     my_strncpy(res, ">>", 2);
   else if (cmd[pos] == '|' && cmd[pos - 1] != '|')
     my_strncpy(res, "|", 1);
