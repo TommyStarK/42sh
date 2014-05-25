@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 15:18:26 2014 chambon emmanuel
-** Last update Sun May 25 21:17:14 2014 chambon emmanuel
+** Last update Sun May 25 23:05:46 2014 chambon emmanuel
 */
 
 #ifndef __BUILTINS_H__
@@ -26,5 +26,6 @@ int		alias(t_sh *, char **, int, int);
 char		*get_item(t_sh *sh, char *);
 void		my_putstr_echo(char *, int);
 int		list_put_start(t_alias **, char *, char *);
+int		source(t_sh *, char **);
 
 #endif /* __BUILTINS_H__ */

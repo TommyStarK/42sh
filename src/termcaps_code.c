@@ -1,11 +1,11 @@
 /*
 ** termcaps_code.c for 42.h in /home/tequilol/test/src
-** 
+**
 ** Made by Dorian Amouroux
 ** Login   <tequilol@epitech.net>
-** 
+**
 ** Started on  Sun May 25 18:09:55 2014 Dorian Amouroux
-** Last update Sun May 25 18:47:24 2014 Dorian Amouroux
+** Last update Sun May 25 23:08:24 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -44,8 +44,7 @@ int	check_list_termcaps(void)
     {
       if (list_caps[i].code == NULL)
 	{
-	  fprintf(stderr, "Your terminal doesn't handle all termcaps \
-required for line editor, use normal mode instead\n");
+	  fprintf(stderr, NO_TERMCAPS);
 	  return (-1);
 	}
       i++;

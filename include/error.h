@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:05:19 2014 chambon emmanuel
-** Last update Sun May 25 20:32:03 2014 chambon emmanuel
+** Last update Sun May 25 23:09:05 2014 chambon emmanuel
 */
 
 #ifndef __ERROR_H__
@@ -29,5 +29,7 @@
 # define INVALID_VALUE			"\"%s\" is not valid in this context\n"
 # define NO_ENV				"42sh: event not found: %d\n"
 # define ERROR_HISTORY			"Error with [.history] file\n"
+# define NO_TERMCAPS			"Your terminal doesn't handle all termcaps required for line editor\n"
+# define USAGE_SOURCE			"Usage : source path/to/conf/file\n"
 
 #endif /* !__ERROR_H__ */

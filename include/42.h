@@ -5,11 +5,11 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:05 2014 chambon emmanuel
-** Last update Sun May 25 06:07:02 2014 chambon emmanuel
+** Last update Sun May 25 23:06:41 2014 chambon emmanuel
 */
 
-#ifndef __42_h__
-# define __42_h__
+#ifndef __42_H__
+# define __42_H__
 
 # include <sys/types.h>
 # include <sys/stat.h>

@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 **
 ** Started on  Sat May 24 23:12:53 2014 Dorian Amouroux
-** Last update Sun May 25 20:44:21 2014 Dorian Amouroux
+** Last update Sun May 25 23:10:58 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -36,6 +36,7 @@ int	handle_eot(t_editor *editor)
 	editor->last->prev->next = NULL;
       remove_last(editor);
       my_putstr("exit\n");
+      unset_editor(editor);
       return (-1);
     }
   else

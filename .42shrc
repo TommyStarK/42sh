@@ -19,7 +19,6 @@
 # any alias with invalid syntax will be ignored
 #
 
-alias sshpi='ssh pi@jeansarda.com -p 2222'
 alias ls='ls --color=auto'
 alias la='ls -a --color'
 alias cp='cp -v'
@@ -28,12 +27,9 @@ alias rm='rm -v'
 alias emacs='emacs -nw'
 alias ne='emacs'
 alias grep='grep --color=auto'
-alias red='redshift -l 46:2'
-alias py='chmod 770 *.py'
 alias tree='tree -C'
-alias cln='rm *~; rm \#*\#'
+alias cln='rm -f *~; rm -f \#*\#'
 alias ns='QNetSoul &'
-alias taggle='poweroff'
 alias mega_test='cat << tommy ; ls > toto && ls >> toto && cat < toto ; caca || setenv EDITOR 123456789 ; ./42sh ; htop && emacs -nw 42sh ; tree | grep sh_ | cat | echo yolo | cat > TEST && cat TEST ; pd || env -0 ; cd / ; caca || pwd'
 
 #
