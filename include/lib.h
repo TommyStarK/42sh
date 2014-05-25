@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:11:03 2014 chambon emmanuel
-** Last update Sat May 24 07:48:25 2014 chambon emmanuel
+** Last update Sun May 25 01:33:25 2014 chambon emmanuel
 */
 
 #ifndef __LIB_H__
@@ -33,5 +33,6 @@ char            *my_strncpy(char *, char *, int);
 char            *my_strcpy(char *, char *);
 int		my_putchar_color(char, int);
 int		my_putstr_color(char *, int);
+char		*strcat_dat(char **);
 
 #endif /* !__LIB_H__ */

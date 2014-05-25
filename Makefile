@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sat May 24 18:31:08 2014 chambon emmanuel
+## Last update Sun May 25 01:46:06 2014 chambon emmanuel
 ##
 
 CC		=	gcc -g
@@ -26,7 +26,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(SRC_F)main.c				\
 			$(SRC_F)node_shell.c			\
 			$(SRC_F)get_env.c			\
-			$(SRC_F)alias.c			\
+			$(SRC_F)alias.c				\
 			$(SRC_F)prompt.c			\
 			$(SRC_F)config.c			\
 			$(SRC_F)globing.c			\
@@ -42,12 +42,13 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(BTIN_F)common_builtins.c		\
 			$(BTIN_F)check_builtins.c		\
 			$(BTIN_F)cd/cd.c			\
+			$(BTIN_F)cd/cd_bis.c			\
 			$(BTIN_F)echo/echo.c			\
 			$(BTIN_F)env/setenv/setenv.c		\
 			$(BTIN_F)env/unsetenv/unsetenv.c	\
 			$(BTIN_F)env/env/env.c			\
 			$(BTIN_F)prompt/set_prompt.c		\
-			$(BTIN_F)alias/alias.c		\
+			$(BTIN_F)alias/alias.c			\
 			$(LIB_F)my_putcolor.c			\
 			$(LIB_F)my_strcpy.c			\
 			$(LIB_F)my_putchar.c			\
@@ -55,6 +56,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(LIB_F)my_strncpy.c			\
 			$(LIB_F)my_strncpy_m.c			\
 			$(LIB_F)my_strcat.c			\
+			$(LIB_F)strcat_dat.c			\
 			$(LIB_F)my_str_to_wordtab.c		\
 			$(LIB_F)my_putstr.c			\
 			$(LIB_F)get_next_line.c			\
@@ -67,14 +69,14 @@ NAME		=	42sh
 
 
 $(NAME)		:	$(OBJ)
-			$(CC) -o $(NAME) $(OBJ)
+			@$(CC) -o $(NAME) $(OBJ)
 
 all		:	$(NAME)
 
 clean		:
-			$(RM) $(OBJ)
+			@$(RM) $(OBJ)
 
 fclean		:	clean
-		 	$(RM) $(NAME)
+		 	@$(RM) $(NAME)
 
 re		:	fclean all

@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 06:17:27 2014 chambon emmanuel
-** Last update Sat May 24 22:11:03 2014 chambon emmanuel
+** Last update Sun May 25 01:31:50 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -60,28 +60,6 @@ int		check_alias(char *str)
     return (-1);
 }
 
-char		*get_opt(char **opt)
-{
-  int		i;
-  char		*cmd;
-
-  if (!(cmd = strdup(opt[0])))
-    {
-      fprintf(stderr, ERR_MALLOC);
-      return (NULL);
-    }
-  i = 1;
-  while (opt[i])
-    {
-      if (!(cmd = my_strcat(cmd, " ")))
-	return (NULL);
-      if (!(cmd = my_strcat(cmd, opt[i])))
-	return (NULL);
-      i++;
-    }
-  return (cmd);
-}
-
 int		print_alias(t_sh *sh)
 {
   t_alias	*tmp;
@@ -106,7 +84,7 @@ int		alias(t_sh *sh, char **opt, int flag)
   i = 0;
   if (!opt[0])
     return (print_alias(sh));
-  if (!(cmd = get_opt(opt)))
+  if (!(cmd = strcat_dat(opt)))
     return (0);
   if (check_alias(cmd) == -1)
     {

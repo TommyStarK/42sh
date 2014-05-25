@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 15:35:55 2014 thomas milox
-** Last update Sat May 24 09:31:57 2014 thomas milox
+** Last update Sun May 25 02:18:32 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -33,6 +33,7 @@ char			*handle_d_lredir(char *match, int fd)
   char			*s;
   char			*res;
 
+  s = NULL;
   if (write(fd, "> ", 2) == -1 || !(s = gt_next_line(fd)))
     return (NULL);
   res = s;

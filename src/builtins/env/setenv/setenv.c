@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 16:41:23 2014 chambon emmanuel
-** Last update Thu May 22 17:56:21 2014 chambon emmanuel
+** Last update Sun May 25 02:11:09 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -14,6 +14,19 @@ int		print_usage_setenv()
 {
   fprintf(stderr, ARG_SETENV);
   return (0);
+}
+
+char		*get_new_value(char *item, char *value)
+{
+  char		*ret;
+
+  if (!((ret = my_xmalloc((strlen(item) + strlen(value) + 2) * sizeof(char)))))
+    return (NULL);
+  bzero(ret, (strlen(item) + strlen(value) + 2));
+  strcat(ret, item);
+  strcat(ret, "=");
+  strcat(ret, value);
+  return (ret);
 }
 
 int		add_item(char *item, char *value, t_sh *sh)
@@ -26,13 +39,13 @@ int		add_item(char *item, char *value, t_sh *sh)
       i = tab_len(sh->env, NULL);
       sh->env = realloc(sh->env, (i + 2) * sizeof(char *));
       sh->env[i + 1] = NULL;
-      sh->env[i] = strdup(my_strcat(my_strcat(item, "="), value));
+      sh->env[i] = get_new_value(item, value);
       return (0);
     }
   else
     {
-      bzero(sh->env[i], strlen(sh->env[i]));
-      sh->env[i] = strdup(my_strcat(my_strcat(item, "="), value));
+      free(sh->env[i]);
+      sh->env[i] = get_new_value(item, value);
       return (0);
     }
   fprintf(stderr, PB_ENV);

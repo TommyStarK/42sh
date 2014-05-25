@@ -5,25 +5,10 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 15:25:40 2014 chambon emmanuel
-** Last update Sat May 24 04:46:47 2014 chambon emmanuel
+** Last update Sun May 25 01:45:14 2014 chambon emmanuel
 */
 
 #include "42.h"
-
-char		*get_item(t_sh *sh, char *item)
-{
-  int		i;
-
-  i = 0;
-  while (sh->env[i])
-    {
-      if (!strncmp(sh->env[i], item, strlen(item)))
-	return (strdup(&sh->env[i][strlen(item)]));
-      i++;
-    }
-  fprintf(stderr, MISSING_ENV, (int)strlen(item) - 1, item);
-  return (NULL);
-}
 
 int		cd_home(t_sh *sh)
 {
