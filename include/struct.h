@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Sun May 25 20:03:00 2014 Dorian Amouroux
+** Last update Sun May 25 22:14:32 2014 thomas milox
 */
 
 #ifndef __STRUCT_H__
@@ -28,7 +28,7 @@ union			u_buffer
 typedef struct		s_str
 {
   int			pos;
-  char			str[1024];
+  char			str[4097];
   int			len;
 }			t_str;
 

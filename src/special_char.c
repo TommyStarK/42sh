@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:37:35 2014 Dorian Amouroux
-** Last update Sun May 25 18:40:26 2014 Dorian Amouroux
+** Last update Sun May 25 22:14:57 2014 thomas milox
 */
 
 #include "42.h"
@@ -18,7 +18,7 @@ int	insert_letter(t_str *command, union u_buffer buff)
   i = 0;
   while (i < 4 && (buff.tab_value[i] >= 32 && buff.tab_value[i] <= 126))
     {
-      if (command->len >= 1023)
+      if (command->len >= 4096)
 	return (0);
       if (!(temp = my_strdup(&command->str[command->pos])))
 	return (-2);
