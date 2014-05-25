@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Sun May 25 06:00:54 2014 chambon emmanuel
+** Last update Sun May 25 09:06:03 2014 chambon emmanuel
 */
 
 #ifndef __STRUCT_H__
@@ -79,6 +79,7 @@ typedef struct		s_sh
   t_exe			*exe;
   t_bin			*tree;
   t_alias		*alias;
+  t_hist		*history;
   t_misc		misc;
 }			t_sh;
 

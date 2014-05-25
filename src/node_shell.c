@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:17:13 2014 chambon emmanuel
-** Last update Sun May 25 08:40:58 2014 chambon emmanuel
+** Last update Sun May 25 09:05:10 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -19,6 +19,7 @@ int		node_shell(t_editor *editor)
   buffer = replace_alias(buffer, &editor->sh, 0);
   editor->sh.tree = create_binary_tree(&editor->sh.tree,
 				       buffer, (int)strlen(buffer));
+  editor->sh.history = editor->history;
   if (!(resolve_binary_tree(&editor->sh, &editor->sh.tree)))
     {
       free_binary_tree(editor->sh.tree);
