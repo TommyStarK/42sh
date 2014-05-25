@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 **
 ** Started on  Sat May 24 05:33:00 2014 Dorian Amouroux
-** Last update Sun May 25 06:25:43 2014 chambon emmanuel
+** Last update Sun May 25 08:45:47 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -16,7 +16,7 @@ int	cut_line(t_str *current, char **buffer)
     return (0);
   if (*buffer != NULL)
     my_free(*buffer);
-  if ((*buffer = my_strdup(&current->str[current->pos])) == NULL)
+  if (!(*buffer = my_strdup(&current->str[current->pos])))
     return (-1);
   CAPS("cd");
   current->str[current->pos] = 0;

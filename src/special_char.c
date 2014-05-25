@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:37:35 2014 Dorian Amouroux
-** Last update Sun May 25 06:23:20 2014 chambon emmanuel
+** Last update Sun May 25 08:46:13 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -20,7 +20,7 @@ int	insert_letter(t_str *command, union u_buffer buff)
     {
       if (command->len >= 1023)
 	return (0);
-      if ((temp = my_strdup(&command->str[command->pos])) == NULL)
+      if (!(temp = my_strdup(&command->str[command->pos])))
 	return (2);
       my_strcpy(&command->str[command->pos + 1], temp);
       my_free(temp);
@@ -42,7 +42,7 @@ int	erase_right(t_editor *editor)
 
   if (editor->command.pos == editor->command.len)
     return (0);
-  if ((temp = my_strdup(&editor->command.str[editor->command.pos + 1])) == NULL)
+  if (!(temp = my_strdup(&editor->command.str[editor->command.pos + 1])))
     return (2);
   editor->command.len--;
   my_strcpy(&editor->command.str[editor->command.pos], temp);
@@ -60,7 +60,7 @@ int	erase_left(t_editor *editor)
 
   if (editor->command.pos < 1 || editor->command.len == 0)
     return (0);
-  if ((temp = my_strdup(&editor->command.str[editor->command.pos])) == NULL)
+  if (!(temp = my_strdup(&editor->command.str[editor->command.pos])))
     return (2);
   my_strcpy(&editor->command.str[editor->command.pos - 1], temp);
   move_left(editor);
@@ -78,7 +78,7 @@ int	end_of_line(t_editor *editor)
   if (editor->command.str[0] == 0)
     {
       my_putchar('\n');
-      editor->len_prompt = print_prompt(&editor->sh);
+      editor->len_prompt = print_prompt(&editor->sh, 0);
       return (0);
     }
   my_putchar('\n');
