@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 01:14:08 2014 thomas milox
-** Last update Sun May 25 03:51:58 2014 thomas milox
+** Last update Sun May 25 07:11:54 2014 thomas milox
 */
 
 #include "42.h"
@@ -88,8 +88,9 @@ int			make_d_lredir(t_sh *sh, t_bin *tmp)
   if (!(resolve_binary_tree(sh, &tmp->l)))
     return (0);
   if (close(ret.pipefd[0]) || dup2(ret.stdout, 1) == -1
-      || dup2(ret.stdin, 0) == -1)
+      || dup2(ret.stdin, 0) == -1 || close(ret.stdin) == -1)
     return (0);
+  close(ret.stdout);
   return (1);
 }
 
@@ -117,7 +118,8 @@ int			make_pipe(t_sh *sh, t_bin *tmp)
   if (ptr == tmp)
     {
       ptr = NULL;
-      if (dup2(ret.stdin, 0) == -1 || close(ret.stdin) == -1)
+      if (dup2(ret.stdin, 0) == -1 || close(ret.stdin) == -1
+	  || close(ret.stdout) == -1)
   	return (0);
     }
   else

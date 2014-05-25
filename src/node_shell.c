@@ -5,7 +5,11 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:17:13 2014 chambon emmanuel
-** Last update Sun May 25 07:38:22 2014 chambon emmanuel
+<<<<<<< HEAD
+** Last update Sun May 25 07:39:53 2014 chambon emmanuel
+=======
+** Last update Sun May 25 05:54:52 2014 thomas milox
+>>>>>>> e4ae13121d911c14d086846d45186e9c55218bac
 */
 
 #include "42.h"
@@ -16,15 +20,15 @@ int		node_shell(t_editor *editor)
 
   if (!(buffer = read_stdin(editor)))
     return (-1);
-  buffer = replace_alias(buffer, &editor->sh, 0);
-  editor->sh.tree = create_binary_tree(&editor->sh.tree, buffer, (int)strlen(buffer));
-  if (!(resolve_binary_tree(&editor->sh, &editor->sh.tree)))
+  buffer = replace_alias(buffer, sh, 0);
+  sh->tree = create_binary_tree(&sh->tree, buffer, (int)strlen(buffer));
+  if (!(resolve_binary_tree(sh, &sh->tree)))
     {
       free_binary_tree(editor->sh.tree);
       free(buffer);
       return (-1);
     }
-  free_binary_tree(editor->sh.tree);
   free(buffer);
+  free_binary_tree(editor->sh.tree);
   return (0);
 }
