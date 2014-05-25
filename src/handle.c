@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 **
 ** Started on  Sat May 24 23:12:53 2014 Dorian Amouroux
-** Last update Sun May 25 08:43:13 2014 chambon emmanuel
+** Last update Sun May 25 17:17:37 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -30,4 +30,11 @@ int	handle_eot(t_editor *editor)
     }
   else
     return (erase_right(editor));
+}
+
+void	handle_winch(int sig_handler)
+{
+  USELESS(sig_handler);
+  /* if (ioctl(0, TIOCGWINSZ, &size_term) == -1) */
+  /*   perror("ioctl"); */
 }

@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 22:00:29 2014 sarda_j
-** Last update Sun May 25 09:21:58 2014 chambon emmanuel
+** Last update Sun May 25 15:38:54 2014 sarda_j
 */
 
 #include "42.h"
@@ -53,9 +53,7 @@ int		print_prompt(t_sh *sh, int i)
     {
       while (i < (int)strlen(sh->prompt))
 	{
-	  if (sh->prompt[i] == '\\')
-	    size += my_putchar_color(sh->prompt[i + 1], color);
-	  else if (sh->prompt[i] == '%')
+	  if (sh->prompt[i] == '%')
 	    case_color(sh, &color, &i);
 	  else if (sh->prompt[i] == '$')
 	    size += case_var(sh, &color, &i);

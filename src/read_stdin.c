@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:06:40 2014 Dorian Amouroux
-** Last update Sun May 25 08:42:20 2014 chambon emmanuel
+** Last update Sun May 25 17:26:52 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -64,24 +64,16 @@ char	*no_termcaps_read(void)
   if ((ret = read(0, buffer, 1023)) < 1)
     return (NULL);
   buffer[ret - 1] = 0;
-  return (my_strdup(buffer));
+  return (strdup(buffer));
 }
 
 char		*format_stdin(t_editor *editor)
 {
-  t_hist	*new_last;
-
   if (editor != NULL &&
       editor->last->prev != NULL &&
       editor->last->prev->str != NULL &&
       !(strcmp(editor->command.str, editor->last->prev->str)))
-    {
-      new_last = editor->last->prev;
-      new_last->next = NULL;
-      my_free(editor->last->str);
-      my_free(editor->last);
-      editor->last = new_last;
-    }
+    remove_last(editor);
   else
     {
       my_free(editor->last->str);

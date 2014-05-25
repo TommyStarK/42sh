@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sun May 25 09:06:27 2014 chambon emmanuel
+## Last update Sun May 25 17:33:23 2014 chambon emmanuel
 ##
 
 CC		=	gcc -g
@@ -44,6 +44,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(SRC_F)termios.c			\
 			$(SRC_F)move.c				\
 			$(SRC_F)history.c			\
+			$(SRC_F)history2.c			\
 			$(SRC_F)cut_paste.c			\
 			$(SRC_F)read_file.c			\
 			$(SRC_F)handle.c			\
@@ -76,6 +77,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(LIB_F)my_malloc.c			\
 			$(LIB_F)wordtab.c			\
 			$(LIB_F)purge_str.c			\
+			$(LIB_F)my_getnbr.c			\
 			$(LIB_F)my_xmalloc.c
 
 OBJ		=	$(SRC:.c=.o)

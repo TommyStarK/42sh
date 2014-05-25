@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Wed May 21 22:13:32 2014 sarda_j
-** Last update Sun May 25 09:23:32 2014 chambon emmanuel
+** Last update Sun May 25 15:39:30 2014 sarda_j
 */
 
 #include "42.h"
@@ -40,6 +40,8 @@ int		get_color_code(char *color)
     return (35);
   else if (!(strcmp(color, "cyan")))
     return (36);
+  else if (!(strcmp(color, "white")))
+    return (0);
   else if (!(strcmp(color, "endcolor")))
     return (0);
   return (-1);

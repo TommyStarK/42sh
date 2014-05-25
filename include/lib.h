@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:11:03 2014 chambon emmanuel
-** Last update Sun May 25 06:37:05 2014 chambon emmanuel
+** Last update Sun May 25 15:25:08 2014 chambon emmanuel
 */
 
 #ifndef __LIB_H__
@@ -46,5 +46,7 @@ void			my_free(void *ptr);
 void			free_all(void);
 int			my_perror(char *, int);
 char			**wordtab(char *, char *);
+char			**explode_char(char *);
+int			my_getnbr(char *);
 
 #endif /* !__LIB_H__ */

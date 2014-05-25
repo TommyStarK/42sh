@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Mon May 19 13:35:43 2014 Dorian Amouroux
-** Last update Sun May 25 09:01:18 2014 chambon emmanuel
+** Last update Sun May 25 16:38:33 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -69,4 +69,19 @@ int		add_command_history(t_hist **list, char *str)
       elem->prev = last;
     }
   return (0);
+}
+
+int		history_length(t_hist *hist)
+{
+  int		i;
+  t_hist	*tmp;
+
+  i = 0;
+  tmp = hist;
+  while (tmp != NULL)
+    {
+      tmp = tmp->next;
+      i++;
+    }
+  return (i);
 }

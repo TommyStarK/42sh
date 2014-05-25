@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:37:35 2014 Dorian Amouroux
-** Last update Sun May 25 08:46:13 2014 chambon emmanuel
+** Last update Sun May 25 17:01:06 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -75,12 +75,17 @@ int	erase_left(t_editor *editor)
 
 int	end_of_line(t_editor *editor)
 {
+  my_putchar('\n');
   if (editor->command.str[0] == 0)
     {
-      my_putchar('\n');
       editor->len_prompt = print_prompt(&editor->sh, 0);
       return (0);
     }
-  my_putchar('\n');
+  if (command_history(editor) == -1)
+    {
+      editor->len_prompt = print_prompt(&editor->sh, 0);
+      init_command(&editor->command);
+      return (0);
+    }
   return (-1);
 }

@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sun May 25 05:23:49 2014 chambon emmanuel
-** Last update Sun May 25 08:55:29 2014 Dorian Amouroux
+** Last update Sun May 25 17:27:25 2014 Dorian Amouroux
 */
 
 #ifndef __READ_H__
@@ -34,6 +34,9 @@ char			*get_file_history(int);
 int			handle_eot(t_editor *);
 int			set_editor(t_editor *);
 int			unset_editor(t_editor *);
+int			command_history(t_editor *);
+void			init_command(t_str *);
+void			handle_winch(int);
 /*
 ** action
 */
@@ -62,6 +65,8 @@ t_hist                  *get_last(t_hist *);
 int			history_up(t_editor *);
 int			history_down(t_editor *);
 int			show_history(t_hist *);
+int			history_length(t_hist *);
+void			remove_last(t_editor *);
 
 extern struct winsize	size_term;
 

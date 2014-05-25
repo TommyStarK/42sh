@@ -5,10 +5,22 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:03:22 2014 chambon emmanuel
-** Last update Fri May 23 21:57:25 2014 chambon emmanuel
+** Last update Sun May 25 15:02:08 2014 chambon emmanuel
 */
 
 #include "42.h"
+
+char		**minimal_env()
+{
+  char		**env;
+
+  if (!(env = my_xmalloc(2 * sizeof(char *))))
+    return (NULL);
+  env[1] = NULL;
+  if (!(env[0] = strdup("SHELL=TOMMYSTARK")))
+    return (NULL);
+  return (env);
+}
 
 char		**get_env(char **env)
 {
@@ -16,6 +28,8 @@ char		**get_env(char **env)
   char		**envp;
 
   i = 0;
+  if (!env || !env[0])
+    return (minimal_env());
   while (env[i])
     i++;
   if (!(envp = my_xmalloc((i + 1) * sizeof(char *))))

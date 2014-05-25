@@ -1,16 +1,55 @@
-##################################
-#             ALIAS              #
-#                                #
-#   ex : "alias ls='ls --color'  #
-#                                #
-##################################
-alias ls='ls --color'
-alias ne='emacs -nw'
+###############################################################
+##                                                           ##
+##                                                 amouro_d  ##
+##       ##########       ###########              chambo_e  ##
+##      ###########     ###############            milox_t   ##
+##     ####    ####    #####      #####            sarda_j   ##
+##    ####     ####    #####     #####                       ##
+##   ####      ####             #####       ######  ##   ##  ##
+##  ##################        #####        ###  ### ##   ##  ##
+##  ##################      ######          ###     ##   ##  ##
+##             ####       ######      ##      ###   #######  ##
+##             ####     #################  ##   ### ##   ##  ##
+##             ####    ################     ######  ##   ##  ##
+##                                                           ##
+###############################################################
+#
+# list of aliases
+#
+# any alias with invalid syntax will be ignored
+#
 
-##################################
-#             PROMPT             #
-#                                #
-#   ex : "alias ls='ls --color'  #
-#                                #
-##################################
-prompt : %red\[%endcolor\%blue\$LOGNAME\@$HOSTNAME\%endcolor\%red\]%endcolor\%green\>%endcolor\
+alias sshpi='ssh pi@jeansarda.com -p 2222'
+alias ls='ls --color=auto'
+alias la='ls -a --color'
+alias cp='cp -v'
+alias mv='mv -v'
+alias rm='rm -v'
+alias emacs='emacs -nw'
+alias ne='emacs'
+alias grep='grep --color=auto'
+alias red='redshift -l 46:2'
+alias py='chmod 770 *.py'
+alias tree='tree -C'
+alias cln='rm *~; rm \#*\#'
+alias ns='QNetSoul &'
+alias taggle='poweroff'
+alias pr0n='google-chrome --incognito http://eporner.com'
+
+#
+# prompt config
+#
+# here you can change the prompt and its colors.
+# colors are based on XTerm colors.
+#
+# availables color : grey    red   green
+#                    yellow  blue  white
+#                    pink    cyan  endcolor (alias for white)
+#
+# you can also insert env variables by typing $ENV_VAR\
+#
+# example : the following line defines a prompt composed of the
+# username in blue between red brackets and with a white right arrow.
+#
+prompt : %red\[%blue\$USERNAME\%red\]%endcolor\>
+#

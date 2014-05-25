@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:06:40 2014 Dorian Amouroux
-** Last update Sun May 25 08:46:47 2014 chambon emmanuel
+** Last update Sun May 25 17:18:56 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -31,6 +31,8 @@ int	init_editor(t_editor *editor)
     return (my_perror("tcsetattr", 1));
   if (ioctl(0, TIOCGWINSZ, &size_term) == -1)
     return (my_perror("ioctl", 1));
+  if (signal(SIGWINCH, &handle_winch) == SIG_ERR)
+    return (my_perror("signal", 1));
   if (init_history(editor) == -1)
     return (1);
   return (0);

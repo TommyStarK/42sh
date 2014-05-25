@@ -5,20 +5,75 @@
 ** Login   <tequilol@epitech.net>
 ** 
 ** Started on  Sun May 25 08:53:23 2014 Dorian Amouroux
-** Last update Sun May 25 08:59:59 2014 Dorian Amouroux
+** Last update Sun May 25 17:04:20 2014 Dorian Amouroux
 */
 
-#include "42.sh"
-
-/*
-** fichier qui va gerer les !
-*/
+#include "42.h"
 
 void		remove_last(t_editor *editor)
 {
   t_hist	*new_last;
 
-  if (editor->hist == NULL || editor->last = NULL)
-    
-  new_last = editor->last->prev;
+  if (editor->history == NULL || editor->last == NULL)
+    return ;
+  my_free(editor->last->str);
+  my_free(editor->last);
+  if (editor->last == editor->history)
+    {
+      editor->history = NULL;
+      editor->last = NULL;
+    }
+  else
+    {
+      new_last = editor->last->prev;
+      new_last->next = NULL;
+      my_free(editor->last->str);
+      my_free(editor->last);
+      editor->last = new_last;
+    }
+}
+
+char		*get_command_history_index(t_hist *list, int nb)
+{
+  int		i;
+  t_hist	*tmp;
+
+  i = 1;
+  tmp = list;
+  while (tmp != NULL)
+    {
+      if (i == nb)
+	return (tmp->str);
+      tmp = tmp->next;
+      i++;
+    }
+  fprintf(stderr, "42sh: event not found: %d\n", nb);
+  return (NULL);
+}
+
+int	command_history(t_editor *editor)
+{
+  int	nb;
+  char	*command;
+
+  if (editor->command.str[0] == '!')
+    {
+      if (editor->command.str[1] == '!')
+	nb = -1;
+      else
+	nb = my_getnbr(&editor->command.str[1]);
+      if (nb < 0)
+	nb = history_length(editor->history) + nb;
+      if (nb < 0)
+	nb = 0;
+      command = get_command_history_index(editor->history, nb);
+      if (command != NULL)
+	{
+	  my_strcpy(editor->command.str, command);
+	  return (0);
+	}
+      else
+	return (-1);
+    }
+  return (0);
 }
