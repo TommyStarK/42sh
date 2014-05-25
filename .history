@@ -1,0 +1,17 @@
+rm .history
+ls
+pwd
+ls
+drops
+dropbox status
+exit
+ls
+dropbox status
+exit
+ls
+dropbox status
+exit
+ls
+pwd
+ls
+pwd

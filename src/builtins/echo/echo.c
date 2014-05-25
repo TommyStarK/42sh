@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May  8 21:18:56 2014 chambon emmanuel
-** Last update Sun May 25 04:04:42 2014 chambon emmanuel
+** Last update Sun May 25 05:36:45 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -75,7 +75,7 @@ int		print_arg(char **opt, char flag)
   return (0);
 }
 
-int		echo(char **opt)
+int		my_echo(char **opt)
 {
   char		flag;
   int		i;

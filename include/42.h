@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:05 2014 chambon emmanuel
-** Last update Sat May 24 00:37:07 2014 chambon emmanuel
+** Last update Sun May 25 06:07:02 2014 chambon emmanuel
 */
 
 #ifndef __42_h__
@@ -22,15 +22,20 @@
 # include <fcntl.h>
 # include <strings.h>
 # include <errno.h>
+# include <curses.h>
+# include <term.h>
+# include <termios.h>
+# include <sys/ioctl.h>
 # include "error.h"
 # include "lib.h"
 # include "struct.h"
 # include "builtins.h"
 # include "exec.h"
 # include "prompt.h"
+# include "read.h"
 
 char		**get_env(char **);
-int		node_shell(t_sh *);
+int		node_shell(t_editor *);
 void		free_sh(t_sh *);
 int		conf_read(t_sh *sh);
 pid_t		vfork(void);

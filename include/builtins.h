@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 15:18:26 2014 chambon emmanuel
-** Last update Sun May 25 04:04:19 2014 chambon emmanuel
+** Last update Sun May 25 05:37:35 2014 chambon emmanuel
 */
 
 #ifndef __BUILTINS_H__
@@ -17,7 +17,7 @@ int		tab_len(char **, char *);
 int		check_present(char *, char **);
 int		add_item(char *, char *, t_sh *);
 int		cd(char **, t_sh *);
-int		echo(char **);
+int		my_echo(char **);
 int		my_env(char **, t_sh *, int);
 int		my_setenv(char **, t_sh *);
 int		my_unsetenv(char **, t_sh *);

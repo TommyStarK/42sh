@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sun Apr 13 19:14:10 2014 chambon emmanuel
-** Last update Fri May 23 05:41:01 2014 chambon emmanuel
+** Last update Sun May 25 06:11:08 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -42,7 +42,7 @@ int	word_char(char *str, char sep, int i)
 char	**my_str_to_wordtab(char *str, char sep)
 {
   int	w;
-  char	**tab;
+  char	**t;
   int	i;
   int	c;
   int	count;
@@ -51,19 +51,19 @@ char	**my_str_to_wordtab(char *str, char sep)
   i = 0;
   count = 0;
   w = count_words(str, sep);
-  if (!(tab = my_xmalloc((w + 1) * sizeof(char *))))
+  if (!(t = my_xmalloc((w + 1) * sizeof(char *))))
     return (NULL);
   while (count < w)
     {
       c = word_char(str, sep, i);
-      if (!(tab[count] = my_xmalloc((c + 1) * sizeof(char))))
+      if (!(t[count] = my_xmalloc((c + 1) * sizeof(char))))
 	return (NULL);
-      tab[count][c] = '\0';
-      strncpy(tab[count++], &str[i], c);
+      t[count][c] = '\0';
+      strncpy(t[count++], &str[i], c);
       i = i + c;
       while (str[i] == sep)
 	i++;
     }
-  tab[count] = NULL;
-  return (tab);
+  t[count] = NULL;
+  return (t);
 }

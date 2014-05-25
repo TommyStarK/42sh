@@ -5,17 +5,17 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Wed May 14 15:41:26 2014 chambon emmanuel
-** Last update Thu May 22 16:05:56 2014 chambon emmanuel
+** Last update Sun May 25 06:09:17 2014 chambon emmanuel
 */
 
 #include "42.h"
 
-int		tab_len(char **tab, char *type)
+int		tab_len(char **t, char *type)
 {
   int		i;
 
   i = 0;
-  while (tab[i])
+  while (t[i])
     i++;
   if (type)
     {

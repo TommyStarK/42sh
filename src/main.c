@@ -5,33 +5,37 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:01:26 2014 chambon emmanuel
-** Last update Sat May 24 06:10:54 2014 chambon emmanuel
+** Last update Sun May 25 06:48:35 2014 chambon emmanuel
 */
 
 #include "42.h"
 
-void		set_struct(t_sh *sh, int ac, char **av)
+void		set_struct(t_editor *editor, int ac, char **av)
 {
-  sh->alias = NULL;
-  sh->prompt = NULL;
-  sh->tree = NULL;
-  sh->exe = NULL;
-  sh->misc.last_return = 0;
-  sh->misc.pid_pgr = getpid();
-  sh->misc.last_pgr = 0;
-  sh->misc.av = av;
-  sh->misc.ac = ac;
+  editor->sh.alias = NULL;
+  editor->sh.prompt = NULL;
+  editor->sh.tree = NULL;
+  editor->sh.exe = NULL;
+  editor->sh.misc.last_return = 0;
+  editor->sh.misc.pid_pgr = getpid();
+  editor->sh.misc.last_pgr = 0;
+  editor->sh.misc.av = av;
+  editor->sh.misc.ac = ac;
 }
 
 int		main(int __attribute__((unused))ac, char __attribute__((unused))**av, char **env)
 {
-  t_sh		sh;
+  t_editor     	editor;
 
-  if (!(sh.env = get_env(env)))
+  if (!(editor.sh.env = get_env(env)))
     return (-1);
-  set_struct(&sh, ac, av);
-  conf_read(&sh);
-  while (node_shell(&sh) != -1);
-  free_sh(&sh);
+  set_struct(&editor, ac, av);
+  if ((editor.mode = init_editor(&editor)) == -1)
+    return (1);
+  conf_read(&editor.sh);
+  while (node_shell(&editor) != -1);
+  free_sh(&editor.sh);
+  exit_editor(&editor);
+  free_all();
   return (0);
 }

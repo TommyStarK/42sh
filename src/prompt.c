@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 22:00:29 2014 sarda_j
-** Last update Sat May 24 22:16:59 2014 chambon emmanuel
+** Last update Sun May 25 07:07:00 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -47,6 +47,7 @@ int		print_prompt(t_sh *sh)
 
   i = 0;
   color = 0;
+  size = 0;
   if (!sh->prompt)
     my_putstr("$> ");
   else

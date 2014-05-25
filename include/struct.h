@@ -5,11 +5,33 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Sun May 25 03:38:00 2014 thomas milox
+** Last update Sun May 25 06:00:54 2014 chambon emmanuel
 */
 
 #ifndef __STRUCT_H__
 # define __STRUCT_H__
+
+typedef struct		termios t_termios;
+
+union			u_buffer
+{
+  int			int_value;
+  char			tab_value[4];
+};
+
+typedef struct		s_str
+{
+  int			pos;
+  char			str[1024];
+  int			len;
+}			t_str;
+
+typedef struct		s_hist
+{
+  char			*str;
+  struct s_hist		*prev;
+  struct s_hist		*next;
+}			t_hist;
 
 typedef struct		s_tools
 {
@@ -59,5 +81,24 @@ typedef struct		s_sh
   t_alias		*alias;
   t_misc		misc;
 }			t_sh;
+
+typedef struct		s_editor
+{
+  t_str			command;
+  t_sh			sh;
+  int			len_prompt;
+  t_termios		term;
+  t_hist		*history;
+  t_hist		*current;
+  t_hist		*last;
+  int			fd_history;
+  int			mode;
+}			t_editor;
+
+typedef struct		s_action
+{
+  int			keycode;
+  int			(*function)(t_editor *);
+}			t_action;
 
 #endif /* !__STRUCT_H__ */
