@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:23:57 2014 thomas milox
-** Last update Sun May 25 17:23:42 2014 thomas milox
+** Last update Sun May 25 22:13:33 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -19,6 +19,8 @@ char		*patch_op_or_sep(char *cmd, int pos, int flag)
   if (!(res = my_xmalloc(sizeof(char) * 3)))
     return (NULL);
   memset(res, 0, 3);
+  if (pos == 0)
+    return (NULL);
   if (!flag)
     patch_sep(cmd, pos, res);
   if (flag == 1)
@@ -82,7 +84,7 @@ t_bin		*create_binary_tree(t_bin **tree, char *s, int z)
   while (++t.sep < 2)
     {
       t.end = z - 1;
-      while (t.end >= 0)
+      while (t.end > 0)
 	{
 	  op = patch_op_or_sep(s, t.end, t.sep);
 	  t.len = (int)strlen(op) + 1;
