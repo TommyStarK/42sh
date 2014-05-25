@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Mon Mar 31 13:44:51 2014 Dorian Amouroux
-** Last update Sun May 25 06:28:53 2014 chambon emmanuel
+** Last update Sun May 25 08:45:26 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -53,13 +53,13 @@ char	**wordtab(char *str, char *sep)
 
   str = purge_str(str, sep, &len);
   size = count_word(str, len);
-  if ((big_one = my_malloc((size + 1) * sizeof(char *))) == NULL)
+  if (!(big_one = my_malloc((size + 1) * sizeof(char *))))
     return (NULL);
   big_one[size] = NULL;
   i = 0;
   while (i < size)
     {
-      if ((big_one[i] = my_strdup(get_next_word(str, i, len))) == NULL)
+      if (!(big_one[i] = my_strdup(get_next_word(str, i, len))))
 	return (NULL);
       i++;
     }

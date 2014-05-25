@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 22:00:29 2014 sarda_j
-** Last update Sun May 25 07:07:00 2014 Dorian Amouroux
+** Last update Sun May 25 08:41:23 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -39,13 +39,11 @@ int		case_var(t_sh *sh, int *color, int *i)
   return (ret);
 }
 
-int		print_prompt(t_sh *sh)
+int		print_prompt(t_sh *sh, int i)
 {
-  int		i;
   int		color;
   int		size;
 
-  i = 0;
   color = 0;
   size = 0;
   if (!sh->prompt)

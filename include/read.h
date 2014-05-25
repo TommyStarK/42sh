@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sun May 25 05:23:49 2014 chambon emmanuel
-** Last update Sun May 25 05:51:34 2014 chambon emmanuel
+** Last update Sun May 25 08:15:13 2014 Dorian Amouroux
 */
 
 #ifndef __READ_H__
@@ -32,6 +32,8 @@
 char			*read_stdin(t_editor *);
 char			*get_file_history(int);
 int			handle_eot(t_editor *);
+int			set_editor(t_editor *);
+int			unset_editor(t_editor *);
 /*
 ** action
 */

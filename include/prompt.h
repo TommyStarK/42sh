@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 00:32:22 2014 chambon emmanuel
-** Last update Sat May 24 22:01:40 2014 chambon emmanuel
+** Last update Sun May 25 08:41:49 2014 chambon emmanuel
 */
 
 #ifndef __PROMPT_H__
@@ -13,7 +13,7 @@
 
 # include "struct.h"
 
-int		print_prompt(t_sh *);
+int		print_prompt(t_sh *, int);
 int		my_varlen(char *);
 char		*my_strncpy_m(char *, int);
 int		get_color_code(char *);

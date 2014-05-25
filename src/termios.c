@@ -5,22 +5,28 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:06:40 2014 Dorian Amouroux
-** Last update Sun May 25 07:21:01 2014 Dorian Amouroux
+** Last update Sun May 25 08:46:47 2014 chambon emmanuel
 */
 
 #include "42.h"
 
 struct winsize	size_term;
 
-int		init_editor(t_editor *editor)
+int	init_editor(t_editor *editor)
 {
-  if (tgetent(NULL, getenv("TERM")) != 1)
-    return (my_perror("tgetent", 1));
+  int	ret;
+  char	*term;
+
+  if (!(term = getenv("TERM")))
+    return (1);
+  if ((ret = tgetent(NULL, term)) != 1)
+    {
+      if (ret == -1)
+	perror("tgetent");
+      return (1);
+    }
   if (tcgetattr(0, &editor->term) == -1)
     return (my_perror("tcgetattr", 1));
-  editor->term.c_lflag &= ~(ICANON | ECHO);
-  editor->term.c_cc[VMIN] = 1;
-  editor->term.c_cc[VTIME] = 0;
   if (tcsetattr(0, 0, &editor->term) == -1)
     return (my_perror("tcsetattr", 1));
   if (ioctl(0, TIOCGWINSZ, &size_term) == -1)
@@ -36,13 +42,11 @@ int		exit_editor(t_editor *editor)
 
   if (editor->mode == 1)
     return (0);
-  editor->term.c_lflag |= ICANON | ECHO;
-  editor->term.c_cc[VMIN] = 0;
-  editor->term.c_cc[VTIME] = 0;
   if (tcsetattr(0, 0, &editor->term) == -1)
     return (my_perror("tcsetattr", 1));
   tmp = editor->history;
-  if ((editor->fd_history = open(".history", O_TRUNC | O_CREAT |  O_WRONLY, 0644)) == -1)
+  if ((editor->fd_history = open(".history",
+				 O_TRUNC | O_CREAT |  O_WRONLY, 0644)) == -1)
     return (my_perror("open", 1));
   while (tmp != NULL)
     {
@@ -66,10 +70,10 @@ int	init_history(t_editor *editor)
   editor->fd_history = open(".history", O_RDONLY, 0644);
   if (editor->fd_history == -1)
     return (0);
-  if ((file = get_file_history(editor->fd_history)) == NULL)
+  if (!(file = get_file_history(editor->fd_history)))
     return (0);
   close(editor->fd_history);
-  if ((file_wt = wordtab(file, "\n")) == NULL)
+  if (!(file_wt = wordtab(file, "\n")))
     return (-1);
   i = 0;
   while (file_wt[i] != NULL)
@@ -78,5 +82,25 @@ int	init_history(t_editor *editor)
 	return (-1);
       i++;
     }
+  return (0);
+}
+
+int	unset_editor(t_editor *editor)
+{
+  editor->term.c_lflag |= ICANON | ECHO;
+  editor->term.c_cc[VMIN] = 0;
+  editor->term.c_cc[VTIME] = 0;
+  if (tcsetattr(0, 0, &editor->term) == -1)
+    return (my_perror("tcsetattr", -1));
+  return (0);
+}
+
+int	set_editor(t_editor *editor)
+{
+  editor->term.c_lflag &= ~(ICANON | ECHO);
+  editor->term.c_cc[VMIN] = 1;
+  editor->term.c_cc[VTIME] = 0;
+  if (tcsetattr(0, 0, &editor->term) == -1)
+    return (my_perror("tcsetattr", -1));
   return (0);
 }

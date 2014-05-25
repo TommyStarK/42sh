@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 01:14:08 2014 thomas milox
-** Last update Sun May 25 07:11:54 2014 thomas milox
+** Last update Sun May 25 08:15:57 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -70,7 +70,7 @@ int			make_lredir(t_sh *sh, t_bin *tmp)
 
 int			make_d_lredir(t_sh *sh, t_bin *tmp)
 {
-  static char		*res=NULL;
+  static char		*res = NULL;
   static t_exe		ret;
 
   if (pipe(ret.pipefd) == -1 || (ret.stdout = dup(1)) == -1 ||
@@ -96,7 +96,7 @@ int			make_d_lredir(t_sh *sh, t_bin *tmp)
 
 int			make_pipe(t_sh *sh, t_bin *tmp)
 {
-  static t_bin		*ptr=NULL;
+  static t_bin		*ptr = NULL;
   static t_exe		ret;
 
   if (!ptr)

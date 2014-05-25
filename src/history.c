@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Mon May 19 13:35:43 2014 Dorian Amouroux
-** Last update Sun May 25 06:26:31 2014 chambon emmanuel
+** Last update Sun May 25 08:47:09 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -55,7 +55,7 @@ int		add_command_history(t_hist **list, char *str)
   t_hist	*last;
   t_hist	*elem;
 
-  if ((elem = my_malloc(sizeof(t_hist))) == NULL)
+  if (!(elem = my_malloc(sizeof(t_hist))))
     return (-1);
   elem->str = str;
   elem->next = NULL;

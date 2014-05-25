@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:06:40 2014 Dorian Amouroux
-** Last update Sun May 25 07:00:14 2014 Dorian Amouroux
+** Last update Sun May 25 08:42:20 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -71,9 +71,9 @@ char		*format_stdin(t_editor *editor)
 {
   t_hist	*new_last;
 
-  if (editor != NULL && 
+  if (editor != NULL &&
       editor->last->prev != NULL &&
-      editor->last->prev->str != NULL && 
+      editor->last->prev->str != NULL &&
       !(strcmp(editor->command.str, editor->last->prev->str)))
     {
       new_last = editor->last->prev;
@@ -87,7 +87,10 @@ char		*format_stdin(t_editor *editor)
       my_free(editor->last->str);
       editor->last->str = my_strdup(editor->command.str);
     }
-  return (strdup(editor->last->str));
+  if (unset_editor(editor) == -1)
+    return (NULL);
+  else
+    return (strdup(editor->last->str));
 }
 
 char			*read_stdin(t_editor *editor)
@@ -95,9 +98,11 @@ char			*read_stdin(t_editor *editor)
   union u_buffer	buffer;
   int		ret;
 
-  editor->len_prompt = print_prompt(&editor->sh);
+  editor->len_prompt = print_prompt(&editor->sh, 0);
   if (editor->mode == 1)
     return (no_termcaps_read());
+  if (set_editor(editor) == -1)
+    return (NULL);
   init_command(&editor->command);
   buffer.int_value = 0;
   if (add_command_history(&editor->history, "") == -1)

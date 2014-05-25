@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:01:26 2014 chambon emmanuel
-** Last update Sun May 25 06:48:35 2014 chambon emmanuel
+** Last update Sun May 25 08:40:38 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -23,7 +23,7 @@ void		set_struct(t_editor *editor, int ac, char **av)
   editor->sh.misc.ac = ac;
 }
 
-int		main(int __attribute__((unused))ac, char __attribute__((unused))**av, char **env)
+int		main(int ac, char **av, char **env)
 {
   t_editor     	editor;
 
