@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 15:25:40 2014 chambon emmanuel
-** Last update Sun May 25 01:45:14 2014 chambon emmanuel
+** Last update Sun May 25 20:24:47 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -62,15 +62,22 @@ int		cd_me_dat(t_sh *sh, char **opt)
   if (!opt[0] || !strcmp(opt[0], "--"))
     {
       if (cd_home(sh))
-	return (-1);
+	{
+	  sh->misc.last_return = 1;
+	  return (-1);
+	}
     }
   else if (opt[0][0] == '-' && strlen(opt[0]) == 1)
     {
       if (cd_oldpwd(sh) == -1)
-	return (-1);
+	{
+	  sh->misc.last_return = 1;
+	  return (-1);
+	}
     }
   else if (chdir(opt[0]))
     {
+      sh->misc.last_return = 1;
       perror("cd");
       return (-1);
     }
@@ -86,11 +93,15 @@ int		cd(char **opt, t_sh *sh)
   bzero(&oldpwd, 1024);
   if (!(getcwd(oldpwd, sizeof(oldpwd))))
     {
+      sh->misc.last_return = 1;
       perror("cd");
       return (0);
     }
   if (cd_me_dat(sh, opt) == -1)
-    return (0);
+    {
+      sh->misc.last_return = 1;
+      return (0);
+    }
   set_env_cd((char *)oldpwd, sh);
   return (0);
 }

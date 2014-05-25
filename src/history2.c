@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 ** 
 ** Started on  Sun May 25 08:53:23 2014 Dorian Amouroux
-** Last update Sun May 25 20:05:58 2014 Dorian Amouroux
+** Last update Sun May 25 20:24:15 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -16,16 +16,20 @@ void		remove_last(t_editor *editor)
 
   if (editor->history == NULL || editor->last == NULL)
     return ;
-  my_free(editor->last->str);
-  my_free(editor->last);
   if (editor->last == editor->history)
     {
+      my_free(editor->last->str);
+      my_free(editor->last);
       editor->history = NULL;
       editor->last = NULL;
     }
   else
     {
+      if (editor->last == NULL)
+	return ;
       new_last = editor->last->prev;
+      if (editor->last->prev == NULL)
+	return ;
       new_last->next = NULL;
       my_free(editor->last->str);
       my_free(editor->last);

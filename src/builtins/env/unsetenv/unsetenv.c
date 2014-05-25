@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu Dec 26 17:37:22 2013 emmanuel chambon
-** Last update Fri May 23 09:09:31 2014 chambon emmanuel
+** Last update Sun May 25 20:26:12 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -48,6 +48,7 @@ int		my_unsetenv(char **opt, t_sh *sh)
   i = check_present(opt[0], sh->env);
   if (i == -1)
     {
+      sh->misc.last_return = 1;
       fprintf(stderr, NT_FND_ENV);
       return (0);
     }

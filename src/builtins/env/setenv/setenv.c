@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 16:41:23 2014 chambon emmanuel
-** Last update Sun May 25 18:50:36 2014 chambon emmanuel
+** Last update Sun May 25 20:24:17 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -82,6 +82,7 @@ int		my_setenv(char **opt, t_sh *sh)
   value = strdup(opt[1]);
   if ((add_item(item, value, sh)))
     {
+      sh->misc.last_return = 1;
       free(item);
       free(value);
       return (0);
