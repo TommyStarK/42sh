@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 22:00:29 2014 sarda_j
-** Last update Sun May 25 08:41:23 2014 chambon emmanuel
+** Last update Sun May 25 09:21:58 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -18,7 +18,8 @@ void		case_color(t_sh *sh, int *color, int *i)
   var_len = my_varlen(&(sh->prompt[*i]));
   if (!(var = my_strncpy_m(&(sh->prompt[*i + 1]), var_len - 1)))
     return ;
-  *color = get_color_code(var);
+  if ((*color = get_color_code(var)) == -1)
+    *color = 0;
   *i = *i + var_len;
   free(var);
 }

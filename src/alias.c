@@ -5,14 +5,13 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 21:47:02 2014 chambon emmanuel
-** Last update Sun May 25 01:34:01 2014 chambon emmanuel
+** Last update Sun May 25 09:31:22 2014 chambon emmanuel
 */
 
 #include "42.h"
 
-char		*replace_alias(char *line, t_sh *sh, int i)
+char		*replace_alias(char *line, t_sh *sh, int i, t_alias *tmp)
 {
-  t_alias	*tmp;
   char		**cmd;
   char		*ret;
 
@@ -21,6 +20,7 @@ char		*replace_alias(char *line, t_sh *sh, int i)
   tmp = sh->alias;
   while (tmp)
     {
+      i = 0;
       while (cmd[i])
 	{
 	  if (!(strcmp(cmd[i], tmp->alias)))

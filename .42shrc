@@ -4,8 +4,8 @@
 #   ex : "alias ls='ls --color'  #
 #                                #
 ##################################
-alias me='emacs -nw'
 alias ls='ls --color'
+alias ne='emacs -nw'
 
 ##################################
 #             PROMPT             #

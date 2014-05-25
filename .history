@@ -1,0 +1,21 @@
+ls
+exit
+ls
+me Makefile
+ls
+ne 42sh
+ls
+clear
+ls
+exit
+setenv LDDD yolo
+set-prompt %red\[%endcolor\%blue\$LOGNAME\@$HOSTNAME\@$LDDD\@PWD\%endcolor\%red\]%endcolor\%green\>%endcolor\
+ls
+ne 42sh
+ls
+git status
+ls
+ne .42shrc
+git status
+ls
+ls src
