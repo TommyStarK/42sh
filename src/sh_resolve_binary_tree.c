@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Sun May 25 20:33:23 2014 Dorian Amouroux
+** Last update Sun May 25 21:50:54 2014 thomas milox
 */
 
 #include "42.h"
@@ -35,6 +35,7 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
       wait(&status);
       sh->misc.last_return = get_signal_end_cmd(status);
     }
+  sh->misc.last_pgr = pid;
   return (1);
 }
 
@@ -63,6 +64,7 @@ int		do_exec(t_sh *sh, t_bin *tmp, int status)
       sh->misc.last_return = get_signal_end_cmd(status);
     }
   free(cmd_to_exec);
+  sh->misc.last_pgr = pid;
   return (1);
 }
 
