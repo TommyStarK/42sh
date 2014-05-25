@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May 17 15:35:55 2014 thomas milox
-** Last update Sun May 25 02:18:32 2014 chambon emmanuel
+** Last update Sun May 25 03:36:16 2014 thomas milox
 */
 
 #include "42.h"
@@ -15,13 +15,13 @@ void                    make_separators(t_sh *sh, t_bin *tmp)
   if (!(strcmp(tmp->op, "&&")))
     {
       resolve_binary_tree(sh, &tmp->l);
-      if (!(sh->success))
+      if (!(sh->misc.last_return))
 	resolve_binary_tree(sh, &tmp->r);
     }
   else if (!(strcmp(tmp->op, "||")))
     {
       resolve_binary_tree(sh, &tmp->l);
-      if (sh->success > 0)
+      if ((sh->misc.last_return) > 0)
 	resolve_binary_tree(sh, &tmp->r);
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Sat May 24 22:51:09 2014 chambon emmanuel
+** Last update Sun May 25 03:43:37 2014 thomas milox
 */
 
 #include "42.h"
@@ -15,10 +15,12 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
   int		status;
   pid_t		pid;
 
-  if (access(tmp->cmd[0], R_OK) == -1)
+  if (!(tmp->cmd) || !(tmp->cmd[0]) || strlen(tmp->cmd[0]) < 1)
+    return (0);
+  if (access(tmp->cmd[0], X_OK) == -1)
     {
       fprintf(stderr, ACCESS_DENIED, strerror(errno));
-      sh->success = 1;
+      sh->misc.last_return = 1;
       return (1);
     }
   if ((pid = vfork()) == -1)
@@ -31,7 +33,7 @@ int		do_exec_local(t_sh *sh, t_bin *tmp)
   else
     {
       wait(&status);
-      sh->success = get_signal_end_cmd(status);
+      sh->misc.last_return = get_signal_end_cmd(status);
     }
   return (1);
 }
@@ -41,13 +43,15 @@ int		do_exec(t_sh *sh, t_bin *tmp, int status)
   char		*cmd_to_exec;
   pid_t		pid;
 
+  if (!(tmp->cmd) || !(tmp->cmd[0]) || strlen(tmp->cmd[0]) < 1)
+    return (0);
   if ((tmp->cmd[0][0] == '.' && tmp->cmd[0][1] == '/')
       || (tmp->cmd[0][0] == '/'))
     return (do_exec_local(sh, tmp));
   if (!(cmd_to_exec = get_path(sh, tmp, 0)))
     {
       fprintf(stderr, ERR_CMD, tmp->cmd[0]);
-      return ((sh->success = 1));
+      return ((sh->misc.last_return = 1));
     }
   if ((pid = vfork()) == -1)
     {
@@ -59,7 +63,7 @@ int		do_exec(t_sh *sh, t_bin *tmp, int status)
   else
     {
       wait(&status);
-      sh->success = get_signal_end_cmd(status);
+      sh->misc.last_return = get_signal_end_cmd(status);
     }
   free(cmd_to_exec);
   return (1);
