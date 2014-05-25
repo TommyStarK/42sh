@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Sat May  3 06:12:59 2014 thomas milox
-** Last update Sun May 25 03:52:14 2014 thomas milox
+** Last update Sun May 25 20:31:50 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -45,6 +45,12 @@ int		check_if_env_variable_exist(char **env, char *variable)
     return (i);
 }
 
+void		*return_and_free(char **dbtab, char *returned)
+{
+  free_tab(dbtab);
+  return (returned);
+}
+
 char		*get_path(t_sh *sh, t_bin *tmp, int i)
 {
   int		size;
@@ -60,18 +66,11 @@ char		*get_path(t_sh *sh, t_bin *tmp, int i)
     {
       size = ((int)strlen(path_tab[i]) + (int)strlen(tmp->cmd[0]) + 2);
       if (!(path = patch_path_to_execve(tmp, size, path_tab[i])))
-	{
-	  free_tab(path_tab);
-	  return (NULL);
-	}
+	return (return_and_free(path_tab, NULL));
       if (!(access(path, F_OK)))
-	{
-	  free_tab(path_tab);
-	  return (path);
-	}
+	return (return_and_free(path_tab, path));
       else
 	free(path);
     }
-  free_tab(path_tab);
-  return (NULL);
+  return (return_and_free(path_tab, NULL));
 }

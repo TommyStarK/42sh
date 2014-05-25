@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sun May 25 18:24:54 2014 Dorian Amouroux
+## Last update Sun May 25 21:35:02 2014 Dorian Amouroux
 ##
 
 CC		=	gcc -g
@@ -60,6 +60,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(BTIN_F)env/env/env.c			\
 			$(BTIN_F)prompt/set_prompt.c		\
 			$(BTIN_F)alias/alias.c			\
+			$(BTIN_F)alias/alias_bis.c		\
 			$(BTIN_F)history/history.c		\
 			$(LIB_F)my_putcolor.c			\
 			$(LIB_F)my_strcpy.c			\

@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:01:26 2014 chambon emmanuel
-** Last update Sun May 25 15:26:14 2014 chambon emmanuel
+** Last update Sun May 25 21:34:38 2014 Dorian Amouroux
 */
 
 #include "42.h"

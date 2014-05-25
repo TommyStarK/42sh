@@ -5,45 +5,67 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Thu May 22 23:10:07 2014 chambon emmanuel
-** Last update Sun May 25 09:31:57 2014 chambon emmanuel
+** Last update Sun May 25 21:16:44 2014 Dorian Amouroux
 */
 
 #ifndef __EXEC_H__
 # define __EXEC_H__
 
-/* sh_create_binary_tree */
+/*
+** sh_create_binary_tree
+*/
 char                    *patch_op_or_sep(char *, int, int);
 char                    *patch_cmd(char *, int);
 t_bin                   *new_branch(char *, int, char *);
 t_bin                   *create_binary_tree(t_bin **, char *, int);
-/* sh_create_binary_tree_handle.c */
+/*
+** sh_create_binary_tree_handle.c
+*/
 void                    patch_sep(char *, int, char *);
 void                    patch_op(char *, int, char *);
 void                    free_binary_tree(t_bin *);
-/* sh_resolve_binary_tree */
+/*
+** sh_resolve_binary_tree
+*/
 int                     do_exec(t_sh *, t_bin *, int);
 int                     do_exec_local(t_sh *, t_bin *);
 int                     dispatch_sep_or_op(t_sh *, t_bin *);
 int                     resolve_binary_tree(t_sh *, t_bin **);
-/* sh_operators.c */
+/*
+** sh_operators.c
+*/
 int                     make_pipe(t_sh * , t_bin *);
 int                     make_rredir(t_sh * , t_bin *);
 int                     make_d_rredir(t_sh * , t_bin *);
 int                     make_lredir(t_sh * , t_bin *);
 int                     make_d_lredir(t_sh * , t_bin *);
-/* sh_operators_handle.c */
+/*
+** sh_operators_function.c 
+*/
+void			close_if_needed(void *, void *, int);
+/*
+** sh_operators_handle.c 
+*/
 char                    *handle_d_lredir(char *, int);
 void			make_separators(t_sh *, t_bin *);
-/* sh_get_path.c */
+/*
+** sh_get_path.c
+*/
 int                     check_if_env_variable_exist(char **, char *);
 char                    *get_path(t_sh *, t_bin *, int);
 char                    *patch_path_to_execve(t_bin *, int, char *);
-/* sh_signals.c */
+/*
+** sh_signals.c
+*/
 void                    signal_seg(int);
 int			get_signal_end_cmd(int);
-/* TOOLS */
+/*
+** TOOLS
+*/
 char                    *gt_next_line(const int);
-/* ALIAS */
+/*
+** ALIAS
+*/
 char			*replace_alias(char *, t_sh *, int, t_alias *);
 char			**globing(char **);
 

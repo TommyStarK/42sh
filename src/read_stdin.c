@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:06:40 2014 Dorian Amouroux
-** Last update Sun May 25 18:49:36 2014 Dorian Amouroux
+** Last update Sun May 25 20:55:15 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -24,6 +24,7 @@ static t_action	action_tab[] =
     {UP, &history_up},
     {DOWN, &history_down},
     {CTRL_L, &clear_the_screen},
+    {CTRL_C, &handle_ctrlc},
     {0, 0}
   };
 

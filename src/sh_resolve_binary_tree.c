@@ -5,7 +5,7 @@
 ** Login   <milox_t@epitech.net>
 **
 ** Started on  Wed May 14 02:27:09 2014 thomas milox
-** Last update Sun May 25 18:16:52 2014 thomas milox
+** Last update Sun May 25 20:33:23 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -54,10 +54,7 @@ int		do_exec(t_sh *sh, t_bin *tmp, int status)
       return ((sh->misc.last_return = 1));
     }
   if ((pid = vfork()) == -1)
-    {
-      fprintf(stderr, ERR_FORK);
-      return (0);
-    }
+    return (fprintf(stderr, ERR_FORK) * 0);
   else if (pid == 0)
     execve(cmd_to_exec, tmp->cmd, sh->env);
   else

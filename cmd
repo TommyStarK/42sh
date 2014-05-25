@@ -1,1 +1,0 @@
-cat << tommy ; ls > toto && ls >> toto && cat < toto ; caca || setenv EDITOR 123456789 ; ./42sh ; htop && emacs -nw 42sh ; tree | grep sh_ | cat | cat | cat > TEST && cat TEST ; pd || env -0 ; cd / ; caca || pwd

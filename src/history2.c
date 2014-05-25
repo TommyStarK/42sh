@@ -1,11 +1,11 @@
 /*
 ** history2.c for 42sh in /home/tequilol/Dropbox/B2/42sh/groupe_milox/PSU_2013_42sh/src
-** 
+**
 ** Made by Dorian Amouroux
 ** Login   <tequilol@epitech.net>
-** 
+**
 ** Started on  Sun May 25 08:53:23 2014 Dorian Amouroux
-** Last update Sun May 25 20:24:15 2014 Dorian Amouroux
+** Last update Sun May 25 20:31:11 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -51,7 +51,7 @@ char		*get_command_history_index(t_hist *list, int nb)
       tmp = tmp->next;
       i++;
     }
-  fprintf(stderr, "42sh: event not found: %d\n", nb);
+  fprintf(stderr, NO_ENV, nb);
   return (NULL);
 }
 

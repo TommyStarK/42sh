@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 **
 ** Started on  Sat May 24 08:56:25 2014 Dorian Amouroux
-** Last update Sun May 25 07:16:22 2014 Dorian Amouroux
+** Last update Sun May 25 20:32:31 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -44,7 +44,7 @@ char	*get_file_history(int fd)
 	}
     }
   if (file == NULL && ret == -1)
-    fprintf(stderr, "Error with [.history] file\n");
+    fprintf(stderr, ERROR_HISTORY);
   close(fd);
   return (file);
 }

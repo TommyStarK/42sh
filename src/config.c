@@ -5,7 +5,7 @@
 ** Login   <sarda_j@epitech.net>
 **
 ** Started on  Mon May 19 21:59:53 2014 sarda_j
-** Last update Sat May 24 22:00:02 2014 chambon emmanuel
+** Last update Sun May 25 21:16:13 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -27,7 +27,7 @@ int		conf_read(t_sh *sh)
 	  if (!(strncmp(buff, "prompt : ", 9)))
 	    set_prompt(sh, my_str_to_wordtab(&buff[9], 1), 1);
 	  else if (!(strncmp(buff, "alias ", 6)))
-	    alias(sh, my_str_to_wordtab(&buff[6], ' '), 1);
+	    alias(sh, my_str_to_wordtab(&buff[6], ' '), 1, 0);
 	}
       free(buff);
     }

@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 **
 ** Started on  Sat May 24 23:12:53 2014 Dorian Amouroux
-** Last update Sun May 25 19:47:11 2014 Dorian Amouroux
+** Last update Sun May 25 20:44:21 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -13,6 +13,15 @@
 int	clear_the_screen(t_editor *editor)
 {
   CAPS("cl");
+  editor->len_prompt = print_prompt(&editor->sh, 0);
+  my_putstr(editor->command.str);
+  editor->command.pos = editor->command.len;
+  return (0);
+}
+
+int	handle_ctrlc(t_editor *editor)
+{
+  my_putchar('\n');
   editor->len_prompt = print_prompt(&editor->sh, 0);
   my_putstr(editor->command.str);
   editor->command.pos = editor->command.len;

@@ -5,12 +5,12 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sat May 24 00:12:02 2014 chambon emmanuel
-** Last update Sat May 24 22:07:14 2014 chambon emmanuel
+** Last update Sun May 25 21:11:57 2014 chambon emmanuel
 */
 
 #include "42.h"
 
-int             set_prompt(t_sh *sh, char **opt, int flag)
+int		set_prompt(t_sh *sh, char **opt, int flag)
 {
   char          *prompt;
 

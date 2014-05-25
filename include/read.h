@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sun May 25 05:23:49 2014 chambon emmanuel
-** Last update Sun May 25 20:09:42 2014 Dorian Amouroux
+** Last update Sun May 25 20:47:07 2014 Dorian Amouroux
 */
 
 #ifndef __READ_H__
@@ -28,6 +28,7 @@
 # define CTRL_Y		(25)
 # define CTRL_L		(12)
 # define CTRL_D		(4)
+# define CTRL_C		(3)
 
 char			*get_path_home_history(t_sh *);
 char			*read_stdin(t_editor *);
@@ -40,6 +41,8 @@ void			init_command(t_str *);
 void			handle_winch(int);
 void			write_this_code(char *);
 int			init_list_caps();
+int			handle_ctrlc(t_editor *);
+void			handler_sigint(int);
 /*
 ** action
 */
