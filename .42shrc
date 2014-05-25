@@ -47,5 +47,5 @@ alias mega_test='cat << tommy ; ls > toto && ls >> toto && cat < toto ; caca || 
 # example : the following line defines a prompt composed of the
 # username in blue between red brackets and with a white right arrow.
 #
-prompt : %red\[%blue\$USERNAME\%red\]%endcolor\>
+prompt : %red\[%blue\$LOGNAME\@$PWD\%red\]%endcolor\>
 #
