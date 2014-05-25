@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 16:41:23 2014 chambon emmanuel
-** Last update Sun May 25 02:11:09 2014 chambon emmanuel
+** Last update Sun May 25 02:47:28 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -57,7 +57,7 @@ int		my_setenv(char **opt, t_sh *sh)
   char		*item;
   char		*value;
 
-  if (!opt[0] || tab_len(opt, NULL) > 2)
+  if (!opt[0] || tab_len(opt, NULL) != 2)
     return (print_usage_setenv());
   item = strdup(opt[0]);
   value = strdup(opt[1]);

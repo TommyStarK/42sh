@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:17:13 2014 chambon emmanuel
-** Last update Sun May 25 01:36:07 2014 chambon emmanuel
+** Last update Sun May 25 02:47:49 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -24,7 +24,6 @@ int		node_shell(t_sh *sh)
   buffer[ret - 1] = 0;
   epur_str(buffer);
   buffer = replace_alias(buffer, sh, 0);
-  printf("buffer = %s\n", buffer);
   sh->tree = create_binary_tree(&sh->tree, buffer, (int)strlen(buffer));
   if (!(resolve_binary_tree(sh, &sh->tree)))
     {
