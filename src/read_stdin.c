@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:06:40 2014 Dorian Amouroux
-** Last update Sun May 25 17:26:52 2014 Dorian Amouroux
+** Last update Sun May 25 18:49:36 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -62,7 +62,7 @@ char	*no_termcaps_read(void)
   int	ret;
 
   if ((ret = read(0, buffer, 1023)) < 1)
-    return (NULL);
+    return (strdup("exit"));
   buffer[ret - 1] = 0;
   return (strdup(buffer));
 }
@@ -101,12 +101,14 @@ char			*read_stdin(t_editor *editor)
     return (NULL);
   editor->last = get_last(editor->history);
   editor->current = editor->last;
-  while ((ret = read(0, &buffer, 4)) > 0)
+  while (read(0, &buffer, 4) > 0)
     {
       if (buffer.int_value == 4 && handle_eot(editor) == -1)
 	return (strdup("exit"));
-      else if (action(editor, buffer) == -1)
+      else if ((ret = action(editor, buffer)) == -1)
 	return (format_stdin(editor));
+      else if (ret == -2)
+	return (NULL);
       buffer.int_value = 0;
     }
   return (NULL);

@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:06:40 2014 Dorian Amouroux
-** Last update Sun May 25 17:45:48 2014 Dorian Amouroux
+** Last update Sun May 25 20:07:06 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -17,7 +17,7 @@ int	init_editor(t_editor *editor)
   int	ret;
   char	*term;
 
-  if (!(term = getenv("TERM")))
+  if (!(term = get_item(&editor->sh, "TERM=")))
     return (1);
   if ((ret = tgetent(NULL, term)) != 1)
     {
@@ -25,14 +25,12 @@ int	init_editor(t_editor *editor)
 	perror("tgetent");
       return (1);
     }
+  if (init_list_caps() == -1)
+    return (1);
   if (tcgetattr(0, &editor->term) == -1)
     return (my_perror("tcgetattr", 1));
   if (tcsetattr(0, 0, &editor->term) == -1)
     return (my_perror("tcsetattr", 1));
-  if (ioctl(0, TIOCGWINSZ, &size_term) == -1)
-    return (my_perror("ioctl", 1));
-  /* if (signal(SIGWINCH, &handle_winch) == SIG_ERR) */
-  /*   return (my_perror("signal", 1)); */
   if (init_history(editor) == -1)
     return (1);
   return (0);
@@ -47,9 +45,10 @@ int		exit_editor(t_editor *editor)
   if (tcsetattr(0, 0, &editor->term) == -1)
     return (my_perror("tcsetattr", 1));
   tmp = editor->history;
-  my_putchar('[');
-  if ((editor->fd_history = open(".history",
-				 O_TRUNC | O_CREAT |  O_WRONLY, 0644)) == -1)
+  if (!editor->history_file_name)
+    return (0);
+  if ((editor->fd_history = open(editor->history_file_name,
+				 O_TRUNC | O_CREAT | O_WRONLY, 0644)) == -1)
     return (my_perror("open", 1));
   while (tmp != NULL)
     {
@@ -70,7 +69,9 @@ int	init_history(t_editor *editor)
   int	i;
 
   editor->history = NULL;
-  editor->fd_history = open(".history", O_RDONLY, 0644);
+  if ((editor->history_file_name = get_path_home_history(&editor->sh)) == NULL)
+    return (0);
+  editor->fd_history = open(editor->history_file_name, O_RDONLY);
   if (editor->fd_history == -1)
     return (0);
   if (!(file = get_file_history(editor->fd_history)))
@@ -105,5 +106,7 @@ int	set_editor(t_editor *editor)
   editor->term.c_cc[VTIME] = 0;
   if (tcsetattr(0, 0, &editor->term) == -1)
     return (my_perror("tcsetattr", -1));
+  if (ioctl(0, TIOCGWINSZ, &size_term) == -1)
+    return (my_perror("ioctl", -1));
   return (0);
 }

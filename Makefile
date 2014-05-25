@@ -5,7 +5,7 @@
 ## Login   <chambo_e@epitech.net>
 ## 
 ## Started on  Tue May 20 21:58:44 2014 chambon emmanuel
-## Last update Sun May 25 17:33:23 2014 chambon emmanuel
+## Last update Sun May 25 18:24:54 2014 Dorian Amouroux
 ##
 
 CC		=	gcc -g
@@ -48,6 +48,7 @@ SRC		=	$(SRC_F)free_sh.c			\
 			$(SRC_F)cut_paste.c			\
 			$(SRC_F)read_file.c			\
 			$(SRC_F)handle.c			\
+			$(SRC_F)termcaps_code.c			\
 			$(BTIN_F)common_builtins.c		\
 			$(BTIN_F)check_builtins.c		\
 			$(BTIN_F)cd/cd.c			\

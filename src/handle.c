@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 **
 ** Started on  Sat May 24 23:12:53 2014 Dorian Amouroux
-** Last update Sun May 25 17:36:25 2014 Dorian Amouroux
+** Last update Sun May 25 19:47:11 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -23,8 +23,9 @@ int	handle_eot(t_editor *editor)
 {
   if (editor->command.len == 0)
     {
-      editor->last->prev->next = NULL;
-      my_free(editor->last);
+      if (editor->last->prev != NULL)
+	editor->last->prev->next = NULL;
+      remove_last(editor);
       my_putstr("exit\n");
       return (-1);
     }

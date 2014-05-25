@@ -5,13 +5,19 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 21:59:45 2014 chambon emmanuel
-** Last update Sun May 25 09:06:03 2014 chambon emmanuel
+** Last update Sun May 25 20:03:00 2014 Dorian Amouroux
 */
 
 #ifndef __STRUCT_H__
 # define __STRUCT_H__
 
 typedef struct		termios t_termios;
+
+typedef	struct		s_termcaps
+{
+  char			*name;
+  char			*code;
+}			t_termcaps;
 
 union			u_buffer
 {
@@ -94,6 +100,7 @@ typedef struct		s_editor
   t_hist		*last;
   int			fd_history;
   int			mode;
+  char			*history_file_name;
 }			t_editor;
 
 typedef struct		s_action

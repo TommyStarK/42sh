@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Mon May 12 16:41:23 2014 chambon emmanuel
-** Last update Sun May 25 02:47:28 2014 chambon emmanuel
+** Last update Sun May 25 18:50:36 2014 chambon emmanuel
 */
 
 #include "42.h"
@@ -52,6 +52,23 @@ int		add_item(char *item, char *value, t_sh *sh)
   return (-1);
 }
 
+int		check_is_dollar(char *value)
+{
+  int		i;
+
+  i = 0;
+  while (value[i])
+    {
+      if (value[i] == '$')
+	{
+	  fprintf(stderr, INVALID_VALUE, value);
+	  return (-1);
+	}
+      i++;
+    }
+  return (0);
+}
+
 int		my_setenv(char **opt, t_sh *sh)
 {
   char		*item;
@@ -59,6 +76,8 @@ int		my_setenv(char **opt, t_sh *sh)
 
   if (!opt[0] || tab_len(opt, NULL) != 2)
     return (print_usage_setenv());
+  if (check_is_dollar(opt[1]))
+    return (0);
   item = strdup(opt[0]);
   value = strdup(opt[1]);
   if ((add_item(item, value, sh)))

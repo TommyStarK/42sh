@@ -5,13 +5,13 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Sun May 25 05:23:49 2014 chambon emmanuel
-** Last update Sun May 25 17:27:25 2014 Dorian Amouroux
+** Last update Sun May 25 20:09:42 2014 Dorian Amouroux
 */
 
 #ifndef __READ_H__
 # define __READ_H__
 
-# define CAPS(str)	(my_putstr(tgetstr(str, NULL)))
+# define CAPS(str)	(write_this_code(str))
 # define USELESS(var)	(var = var)
 # define LEFT		(4479771)
 # define RIGHT		(4414235)
@@ -29,6 +29,7 @@
 # define CTRL_L		(12)
 # define CTRL_D		(4)
 
+char			*get_path_home_history(t_sh *);
 char			*read_stdin(t_editor *);
 char			*get_file_history(int);
 int			handle_eot(t_editor *);
@@ -37,6 +38,8 @@ int			unset_editor(t_editor *);
 int			command_history(t_editor *);
 void			init_command(t_str *);
 void			handle_winch(int);
+void			write_this_code(char *);
+int			init_list_caps();
 /*
 ** action
 */

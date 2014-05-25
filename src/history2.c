@@ -5,7 +5,7 @@
 ** Login   <tequilol@epitech.net>
 ** 
 ** Started on  Sun May 25 08:53:23 2014 Dorian Amouroux
-** Last update Sun May 25 17:04:20 2014 Dorian Amouroux
+** Last update Sun May 25 20:05:58 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -76,4 +76,20 @@ int	command_history(t_editor *editor)
 	return (-1);
     }
   return (0);
+}
+
+char    *get_path_home_history(t_sh *sh)
+{
+  char  *new_path;
+  char  *home;
+  int   size;
+
+  if ((home = get_item(sh, "HOME=")) == NULL)
+    return (NULL);
+  size = strlen(home) + strlen("/.42sh_history");
+  if ((new_path = my_malloc(size + 1)) == NULL)
+    return (NULL);
+  strcpy(new_path, home);
+  strcat(new_path, "/.42sh_history");
+  return (new_path);
 }

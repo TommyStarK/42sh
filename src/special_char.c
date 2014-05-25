@@ -5,7 +5,7 @@
 ** Login   <amouro_d@epitech.net>
 **
 ** Started on  Fri May  9 14:37:35 2014 Dorian Amouroux
-** Last update Sun May 25 17:01:06 2014 Dorian Amouroux
+** Last update Sun May 25 18:40:26 2014 Dorian Amouroux
 */
 
 #include "42.h"
@@ -21,7 +21,7 @@ int	insert_letter(t_str *command, union u_buffer buff)
       if (command->len >= 1023)
 	return (0);
       if (!(temp = my_strdup(&command->str[command->pos])))
-	return (2);
+	return (-2);
       my_strcpy(&command->str[command->pos + 1], temp);
       my_free(temp);
       command->str[command->pos] = buff.tab_value[i];
@@ -43,7 +43,7 @@ int	erase_right(t_editor *editor)
   if (editor->command.pos == editor->command.len)
     return (0);
   if (!(temp = my_strdup(&editor->command.str[editor->command.pos + 1])))
-    return (2);
+    return (-2);
   editor->command.len--;
   my_strcpy(&editor->command.str[editor->command.pos], temp);
   CAPS("sc");

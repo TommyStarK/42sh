@@ -34,7 +34,6 @@ alias tree='tree -C'
 alias cln='rm *~; rm \#*\#'
 alias ns='QNetSoul &'
 alias taggle='poweroff'
-alias pr0n='google-chrome --incognito http://eporner.com'
 
 #
 # prompt config

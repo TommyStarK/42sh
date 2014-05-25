@@ -5,7 +5,7 @@
 ** Login   <chambo_e@epitech.net>
 **
 ** Started on  Tue May 20 22:05:19 2014 chambon emmanuel
-** Last update Sat May 24 18:43:58 2014 chambon emmanuel
+** Last update Sun May 25 18:41:41 2014 chambon emmanuel
 */
 
 #ifndef __ERROR_H__
@@ -26,5 +26,6 @@
 # define ACCESS_DENIED			"access : [%s]\n"
 # define WRONG_COLOR			"%s: color not found. Applying white instead.\n"
 # define INVALID_ALIAS			"Alias : invalid syntax.\n"
+# define INVALID_VALUE			"\"%s\" is not valid in this context\n"
 
 #endif /* !__ERROR_H__ */
